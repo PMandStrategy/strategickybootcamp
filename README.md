@@ -1,0 +1,2 @@
+# strategickybootcamp
+Web Strategického bootcampu.
