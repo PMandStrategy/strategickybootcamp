@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <!-- Orange circular arrow -->
-  <path d="M 18 50 A 20 20 0 1 1 15 26"
-        fill="none" stroke="#E8913A" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 17 51 A 18 18 0 1 1 17 25"
+        fill="none" stroke="#E8913A" stroke-width="6" stroke-linecap="round"/>
   <!-- Arrowhead -->
-  <polygon points="20,17 11,24 19,29" fill="#E8913A"/>
-  <!-- Magenta diamond/gem -->
-  <polygon points="32,2 43,15 32,25 21,15" fill="#C4275D"/>
+  <polygon points="23,19 14,22 20,28" fill="#E8913A"/>
+  <!-- Diamond gem - bottom (darker magenta) -->
+  <polygon points="20,15 30,23 40,15" fill="#C4275D"/>
+  <!-- Diamond gem - top (lighter pink) -->
+  <polygon points="30,5 40,15 20,15" fill="#DC3B6C"/>
 </svg>
