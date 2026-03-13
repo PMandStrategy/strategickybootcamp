@@ -171,7 +171,8 @@ section:nth-child(even) { background: var(--light-bg); }
 }
 
 .nav-logo img {
-  height: 40px;
+  height: 52px;
+  max-height: 52px;
   width: auto;
 }
 
@@ -278,9 +279,15 @@ section:nth-child(even) { background: var(--light-bg); }
   max-width: 780px;
 }
 
-.hero-logo {
-  width: 180px;
-  margin: 0 auto 2.5rem;
+.hero-brand {
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  letter-spacing: 0.25em;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
 }
 
 .hero h1 {
@@ -902,6 +909,19 @@ section:nth-child(even) { background: var(--light-bg); }
   transform: translateY(-2px);
 }
 
+/* ========== BRAND LOGO SECTION ========== */
+.brand-logo-section {
+  background: var(--white);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.brand-logo-large {
+  max-width: 320px;
+  width: 80%;
+  height: auto;
+}
+
 /* ========== FINAL CTA ========== */
 section.final-cta {
   background: var(--black);
@@ -1057,7 +1077,7 @@ section.final-cta {
   .price-factors { grid-template-columns: 1fr; }
 
   .hero { min-height: 100svh; padding: 100px 20px 80px; }
-  .hero-logo { width: 140px; }
+  .brand-logo-large { max-width: 220px; }
   .hero-buttons { flex-direction: column; align-items: center; }
 }
 
@@ -1110,7 +1130,7 @@ section.final-cta {
     <img src="images/budova-exterior.jpg" alt="Boutique Ostravica" loading="eager">
   </div>
   <div class="hero-content">
-    <img src="images/logoSB.png" alt="Strategický bootcamp" class="hero-logo">
+    <p class="hero-brand">Strategický bootcamp</p>
     <h1>Máš cíl, který čeká. My vytváříme podmínky, aby se stal skutečností.</h1>
     <p class="hero-subtitle">6 nebo 12 týdnů strukturovaného prostředí pro lidi, kteří vědí, co chtějí — a potřebují prostor to konečně dotáhnout. Jeden cíl. Plná soustředěnost. Reálný výsledek.</p>
     <div class="hero-buttons">
@@ -1427,6 +1447,11 @@ section.final-cta {
       <a href="https://www.prirodnibydleni.cz/" target="_blank" rel="noopener" class="partner-tag">Přírodní bydlení</a>
     </div>
   </div>
+</section>
+
+<!-- ==================== BRAND LOGO ==================== -->
+<section class="brand-logo-section">
+  <img src="images/logoSB.png" alt="Strategický bootcamp" class="brand-logo-large">
 </section>
 
 <!-- ==================== ZÁVĚREČNÉ CTA ==================== -->
