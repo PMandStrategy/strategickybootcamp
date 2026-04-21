@@ -88,26 +88,16 @@
     }
 
     .navbar-back {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 14px;
-        color: var(--black);
-        font-weight: 500;
-        font-size: 15px;
-        transition: color 0.2s ease;
+        height: 58px;
+        overflow: hidden;
+        transition: opacity 0.2s ease;
     }
 
-    .navbar-back:hover { color: var(--orange-dark); }
-    .navbar-back:hover .back-arrow { transform: translateX(-3px); }
+    .navbar-back:hover { opacity: 0.85; }
 
-    .navbar-logo { height: 44px; width: auto; }
-
-    .back-arrow {
-        display: inline-block;
-        transition: transform 0.2s ease;
-        font-size: 18px;
-        color: var(--warm-gray);
-    }
+    .navbar-logo { height: 92px; width: auto; }
 
     .navbar-current {
         font-size: 14px;
@@ -119,7 +109,6 @@
 
     @media (max-width: 640px) {
         .navbar-current { display: none; }
-        .navbar-back span.back-label { display: none; }
     }
 
     /* ===== Hero ===== */
@@ -541,7 +530,6 @@
         section { padding: 60px 0; }
         .hero { padding: 60px 0 80px; }
         .event-card { padding: 28px 22px; }
-        .navbar-logo { height: 38px; }
     }
 </style>
 </head>
@@ -551,9 +539,7 @@
 <nav class="navbar">
     <div class="navbar-inner">
         <a href="/" class="navbar-back" aria-label="Zpět na homepage Strategického bootcampu">
-            <span class="back-arrow" aria-hidden="true">←</span>
             <img src="images/logo_strategicky_bootcamp.png" alt="Strategický bootcamp" class="navbar-logo">
-            <span class="back-label">Strategický bootcamp</span>
         </a>
         <div class="navbar-current">Akce MSK</div>
     </div>
