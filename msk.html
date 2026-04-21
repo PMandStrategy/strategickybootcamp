@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veřejné AI akce v MSK — Strategický bootcamp × Černá.AI</title>
+<meta name="description" content="Veřejné akce pro AI komunitu v Moravskoslezském kraji. Dva hackathony a afterparty v dubnu a květnu 2026. Save the date — detaily brzy.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Veřejné AI akce v MSK — Strategický bootcamp × Černá.AI">
+<meta property="og:description" content="Dva hackathony a afterparty v dubnu a květnu 2026. Save the date — detaily brzy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://strategickybootcamp.cz/msk.html">
+<meta property="og:image" content="https://strategickybootcamp.cz/images/budova-exterior.jpg">
+<meta property="og:locale" content="cs_CZ">
+
+<!-- Favicon (stejné jako homepage) -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="images/site.webmanifest">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* ===== Reset & base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+        --orange: #E8913A;
+        --orange-dark: #C67A25;
+        --magenta: #C4275D;
+        --black: #1A1A1A;
+        --warm-gray: #6B6963;
+        --light-bg: #F5F3EF;
+        --white: #FFFFFF;
+        --border: #E0DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--black);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: saturate(180%) blur(10px);
+        -webkit-backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid var(--border);
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .navbar-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--black);
+        font-weight: 500;
+        font-size: 15px;
+        transition: color 0.2s ease;
+    }
+
+    .navbar-back:hover { color: var(--orange-dark); }
+    .navbar-back:hover .back-arrow { transform: translateX(-3px); }
+
+    .navbar-logo { height: 44px; width: auto; }
+
+    .back-arrow {
+        display: inline-block;
+        transition: transform 0.2s ease;
+        font-size: 18px;
+        color: var(--warm-gray);
+    }
+
+    .navbar-current {
+        font-size: 14px;
+        color: var(--warm-gray);
+        letter-spacing: 0.02em;
+    }
+
+    .navbar-current strong { color: var(--black); font-weight: 600; }
+
+    @media (max-width: 640px) {
+        .navbar-current { display: none; }
+        .navbar-back span.back-label { display: none; }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+        position: relative;
+        padding: 80px 0 100px;
+        background: linear-gradient(135deg, #FDF8F2 0%, #F5F3EF 100%);
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(232, 145, 58, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: -150px;
+        left: -100px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(196, 39, 93, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .eyebrow {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--magenta);
+        margin-bottom: 20px;
+        padding: 6px 14px;
+        background: rgba(196, 39, 93, 0.08);
+        border-radius: 60px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 5.5vw, 64px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+        max-width: 900px;
+    }
+
+    .hero h1 .accent {
+        background: linear-gradient(90deg, var(--orange) 0%, var(--magenta) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+        font-size: clamp(17px, 1.8vw, 20px);
+        color: var(--warm-gray);
+        max-width: 680px;
+        margin-bottom: 32px;
+        line-height: 1.6;
+    }
+
+    .hero-partners {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 14px;
+        color: var(--warm-gray);
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .hero-partners-label {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .partner-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 60px;
+        font-weight: 500;
+        color: var(--black);
+        transition: all 0.2s ease;
+    }
+
+    .partner-pill:hover {
+        border-color: var(--orange);
+        transform: translateY(-2px);
+    }
+
+    /* ===== Sections ===== */
+    section { padding: 80px 0; }
+
+    .section-label {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange-dark);
+        margin-bottom: 12px;
+    }
+
+    .section-title {
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        margin-bottom: 48px;
+        max-width: 800px;
+    }
+
+    /* ===== Events ===== */
+    .events {
+        background: var(--light-bg);
+    }
+
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+    }
+
+    @media (max-width: 900px) {
+        .events-grid { grid-template-columns: 1fr; }
+    }
+
+    .event-card {
+        position: relative;
+        background: var(--white);
+        border-radius: 12px;
+        padding: 32px 28px;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    .event-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(26, 26, 26, 0.08);
+    }
+
+    .event-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--orange);
+    }
+
+    .event-card.afterparty::before {
+        background: linear-gradient(90deg, var(--orange) 0%, var(--magenta) 100%);
+    }
+
+    .event-date {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--orange-dark);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+    }
+
+    .event-card.afterparty .event-date { color: var(--magenta); }
+
+    .event-day {
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin-bottom: 4px;
+        color: var(--black);
+    }
+
+    .event-month {
+        font-size: 17px;
+        color: var(--warm-gray);
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .event-title {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.25;
+        margin-bottom: 12px;
+        color: var(--black);
+    }
+
+    .event-desc {
+        font-size: 15px;
+        color: var(--warm-gray);
+        line-height: 1.55;
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+
+    .event-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 20px;
+    }
+
+    .event-tag {
+        font-size: 12px;
+        padding: 4px 10px;
+        background: var(--light-bg);
+        border-radius: 60px;
+        color: var(--black);
+        font-weight: 500;
+    }
+
+    .event-meta {
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+        font-size: 13px;
+        color: var(--warm-gray);
+        line-height: 1.5;
+    }
+
+    .event-meta strong {
+        color: var(--black);
+        font-weight: 500;
+    }
+
+    /* ===== CTA block ===== */
+    .save-the-date {
+        background: var(--black);
+        color: var(--white);
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .save-the-date .section-label { color: var(--orange); }
+
+    .save-the-date h2 {
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        margin: 0 auto 24px;
+        max-width: 780px;
+    }
+
+    .save-the-date h2 .accent {
+        background: linear-gradient(90deg, var(--orange) 0%, var(--magenta) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .save-the-date p {
+        font-size: 18px;
+        color: #BFBDB8;
+        max-width: 640px;
+        margin: 0 auto 36px;
+        line-height: 1.65;
+    }
+
+    .save-the-date-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 60px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: var(--orange-dark);
+        color: var(--white);
+    }
+
+    .btn-primary:hover {
+        background: var(--orange);
+        transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+        background: transparent;
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-ghost:hover {
+        border-color: var(--orange);
+        color: var(--orange);
+    }
+
+    /* ===== What to expect ===== */
+    .expect-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: 48px;
+    }
+
+    @media (max-width: 900px) {
+        .expect-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .expect-item {
+        padding: 28px;
+        border-left: 3px solid var(--orange);
+        background: linear-gradient(90deg, rgba(232, 145, 58, 0.04) 0%, transparent 100%);
+    }
+
+    .expect-item h3 {
+        font-size: 19px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .expect-item p {
+        font-size: 15px;
+        color: var(--warm-gray);
+        line-height: 1.6;
+    }
+
+    /* ===== Partners ===== */
+    .partners {
+        background: var(--light-bg);
+    }
+
+    .partners-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        margin-top: 32px;
+    }
+
+    .partners-list a {
+        display: inline-block;
+        padding: 8px 16px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 60px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--black);
+        transition: all 0.2s ease;
+    }
+
+    .partners-list a:hover {
+        border-color: var(--orange);
+        transform: translateY(-2px);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+        padding: 40px 0;
+        border-top: 1px solid var(--border);
+        font-size: 14px;
+        color: var(--warm-gray);
+    }
+
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .footer a {
+        color: var(--orange-dark);
+        font-weight: 500;
+    }
+
+    .footer a:hover { color: var(--magenta); }
+
+    /* ===== Reveal animation ===== */
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ===== Mobile tweaks ===== */
+    @media (max-width: 480px) {
+        section { padding: 60px 0; }
+        .hero { padding: 60px 0 80px; }
+        .event-card { padding: 28px 22px; }
+        .navbar-logo { height: 38px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a href="/" class="navbar-back" aria-label="Zpět na homepage Strategického bootcampu">
+            <span class="back-arrow" aria-hidden="true">←</span>
+            <img src="images/logo_strategicky_bootcamp.png" alt="Strategický bootcamp" class="navbar-logo">
+            <span class="back-label">Strategický bootcamp</span>
+        </a>
+        <div class="navbar-current">Akce MSK</div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <div class="container hero-inner">
+        <span class="eyebrow">Save the date · Moravskoslezský kraj</span>
+        <h1>Veřejné AI akce Strategického bootcampu v MSK.<br><span class="accent">Zablokuj si v kalendáři a doraz.</span></h1>
+        <p class="hero-lead">
+            Ve spolupráci s <strong>Černá.AI</strong> otevíráme v rámci Strategického bootcampu veřejné akce pro komunitu
+            kolem AI, automatizací a vibecodingu v Moravskoslezském kraji. Dva hackathony a otevřené setkání o strategii. Detaily doplníme brzy.
+        </p>
+        <div class="hero-partners">
+            <span class="hero-partners-label">Ve spolupráci s:</span>
+            <a href="https://cerna.ai/" class="partner-pill" target="_blank" rel="noopener">Černá.AI</a>
+            <a href="https://ostrava.hygge.cz/" class="partner-pill" target="_blank" rel="noopener">Hygge Ostrava</a>
+        </div>
+    </div>
+</header>
+
+<!-- Events -->
+<section class="events" id="akce">
+    <div class="container">
+        <div class="section-label reveal">Program</div>
+        <h2 class="section-title reveal">Tři akce, tři důvody si udělat čas.</h2>
+
+        <div class="events-grid">
+            <!-- Hackathon 1 -->
+            <article class="event-card reveal">
+                <div class="event-date">Středa</div>
+                <div class="event-day">29.</div>
+                <div class="event-month">dubna 2026</div>
+                <h3 class="event-title">Veřejný Hackathon #1</h3>
+                <p class="event-desc">
+                    Den pro společnou práci na reálných problémech. AI, automatizace, vibecoding — přijď
+                    s nápadem nebo se přidej k někomu, koho zaujme ten tvůj.
+                </p>
+                <div class="event-tags">
+                    <span class="event-tag">AI</span>
+                    <span class="event-tag">Automatizace</span>
+                    <span class="event-tag">Vibecoding</span>
+                </div>
+                <div class="event-meta">
+                    <strong>Místo:</strong> <a href="https://ostrava.hygge.cz/" target="_blank" rel="noopener" style="color: var(--orange-dark);">Hygge Ostrava</a><br>
+                    <strong>Čas:</strong> 8:45 — 17:00<br>
+                    <span style="font-size: 12px; opacity: 0.85;">Dá se přijít kdykoliv v tomto rozsahu. Ideálně na start v 9:00 nebo na odpolední blok od 13:30.</span><br>
+                    <strong>Vstup:</strong> zdarma<br>
+                    <span style="font-size: 12px; opacity: 0.85;">První návštěva Hygge se domluví na recepci (zdarma). Další návštěvy dle denní sazby Hygge.</span>
+                </div>
+            </article>
+
+            <!-- Hackathon 2 -->
+            <article class="event-card reveal">
+                <div class="event-date">Středa</div>
+                <div class="event-day">6.</div>
+                <div class="event-month">května 2026</div>
+                <h3 class="event-title">Veřejný Hackathon #2</h3>
+                <p class="event-desc">
+                    Druhé kolo. Jestli jsi první zmeškal, tohle je tvoje chance.
+                    Stejný formát, stejná energie, nové tváře a nápady.
+                </p>
+                <div class="event-tags">
+                    <span class="event-tag">AI</span>
+                    <span class="event-tag">Automatizace</span>
+                    <span class="event-tag">Vibecoding</span>
+                </div>
+                <div class="event-meta">
+                    <strong>Místo:</strong> <a href="https://ostrava.hygge.cz/" target="_blank" rel="noopener" style="color: var(--orange-dark);">Hygge Ostrava</a><br>
+                    <strong>Čas:</strong> 8:45 — 17:00<br>
+                    <span style="font-size: 12px; opacity: 0.85;">Dá se přijít kdykoliv v tomto rozsahu. Ideálně na start v 9:00 nebo na odpolední blok od 13:30.</span><br>
+                    <strong>Vstup:</strong> zdarma<br>
+                    <span style="font-size: 12px; opacity: 0.85;">První návštěva Hygge se domluví na recepci (zdarma). Další návštěvy dle denní sazby Hygge.</span>
+                </div>
+            </article>
+
+            <!-- Open strategy meetup -->
+            <article class="event-card afterparty reveal">
+                <div class="event-date">Čtvrtek</div>
+                <div class="event-day">14.</div>
+                <div class="event-month">května 2026</div>
+                <h3 class="event-title">Otevřené setkání o strategii</h3>
+                <p class="event-desc">
+                    Veřejné setkání pro lidi, kteří pracují na věcech, jimž je třeba věnovat plnou pozornost.
+                    Inspirace, rozhovory o dalších krocích a společná energie místo samoty nad to-do listem.
+                </p>
+                <div class="event-tags">
+                    <span class="event-tag">Strategie</span>
+                    <span class="event-tag">Komunita</span>
+                    <span class="event-tag">Networking</span>
+                </div>
+                <div class="event-meta">
+                    <strong>Místo:</strong> <a href="https://troublecafe.eu/" target="_blank" rel="noopener" style="color: var(--magenta);">Trouble Cafe</a>, Ostrava<br>
+                    <strong>Od:</strong> 16:00
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Save the date CTA -->
+<section class="save-the-date">
+    <div class="container">
+        <div class="section-label reveal">Co teď</div>
+        <h2 class="reveal">Zablokuj si termíny.<br><span class="accent">Detaily brzy.</span></h2>
+        <p class="reveal">
+            Termíny a místa platí, finální program pro jednotlivé dny doplníme v nejbližších dnech.
+            Nejjednodušší způsob, jak ti nic neuteče:
+        </p>
+        <div class="save-the-date-actions reveal">
+            <a href="https://www.linkedin.com/company/strategicky-bootcamp/" class="btn btn-primary" target="_blank" rel="noopener">
+                Sledovat bootcamp na LinkedIn →
+            </a>
+            <a href="#akce" class="btn btn-ghost">
+                Vrátit se sem za pár dní
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- What to expect -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Co čekat</div>
+        <h2 class="section-title reveal">Formát akcí v kostce.</h2>
+        <div class="expect-grid">
+            <div class="expect-item reveal">
+                <h3>Otevřené komukoli</h3>
+                <p>Nehraje roli, jestli jsi developer, product člověk, podnikatel nebo nadšenec. Pokud tě AI a automatizace zajímají prakticky, jsi vítán(a).</p>
+            </div>
+            <div class="expect-item reveal">
+                <h3>Práce na konkrétním</h3>
+                <p>Žádné přednášky na odpoledne. Hackathony jsou o tom, že něco vznikne — vlastní nápad nebo pomoc s cizím.</p>
+            </div>
+            <div class="expect-item reveal">
+                <h3>Komunita MSK</h3>
+                <p>Cílíme na lidi z Moravskoslezského kraje a okolí — ale pokud se chceš přidat odjinud, rádi tě uvidíme.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners -->
+<section class="partners">
+    <div class="container">
+        <div class="section-label reveal">Spolupráce</div>
+        <h2 class="section-title reveal">Pořádá Strategický bootcamp<br>ve spolupráci s komunitou.</h2>
+        <div class="partners-list reveal">
+            <a href="https://cerna.ai/" target="_blank" rel="noopener">Černá.AI</a>
+            <a href="https://aibility.cz/" target="_blank" rel="noopener">Aibility</a>
+            <a href="https://www.linkedin.com/groups/11803185/" target="_blank" rel="noopener">AI nadšenci MSK</a>
+            <a href="https://ostrava.hygge.cz/" target="_blank" rel="noopener">Hygge Ostrava</a>
+            <a href="https://boutiqueostravica.cz/" target="_blank" rel="noopener">Boutique Ostravica</a>
+            <a href="https://www.zazracnaosmicka.cz/" target="_blank" rel="noopener">Osmička</a>
+            <a href="http://projektovyklub.cz/" target="_blank" rel="noopener">Projektový klub</a>
+            <a href="https://www.okrmastermind.cz/" target="_blank" rel="noopener">OKR Mastermind</a>
+        </div>
+        <p style="margin-top: 28px; font-size: 15px; color: var(--warm-gray); max-width: 680px;">
+            Odkazujeme také z agregátoru <a href="https://www.aiakcemsk.cz/" target="_blank" rel="noopener" style="color: var(--orange-dark); font-weight: 500;">aiakcemsk.cz</a>
+            — kompletní přehled AI akcí v Moravskoslezském kraji.
+        </p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <div>© 2026 Strategický bootcamp. Organizuje Mira Vlach.</div>
+        <div><a href="/">← Zpět na hlavní stránku</a></div>
+    </div>
+</footer>
+
+<script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
