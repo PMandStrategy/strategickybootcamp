@@ -1,5 +1,12 @@
 # Strategický bootcamp – poznámky pro vývoj
 
+## Struktura webu
+
+Repo obsahuje dvě veřejné stránky:
+
+- **`index.html`** – hlavní landing page Strategického bootcampu (homepage na `strategickybootcamp.cz`).
+- **`msk.html`** – samostatná „save the date“ landing page pro veřejné AI akce v Moravskoslezském kraji (hackathony + otevřené setkání o strategii), kterou Strategický bootcamp pořádá ve spolupráci s [Černá.AI](https://cerna.ai/). Stránka je linkovaná z navbaru homepage (položka „Akce MSK“) a externě z `aiakcemsk.cz` + LinkedIn. Používá stejnou paletu, fonty (DM Sans) a radius (12 px / 60 px pill) jako `index.html`, ale má vlastní zjednodušený navbar (logo + tlačítko zpět na `/`) a vlastní minimalistický JS (jen reveal-on-scroll). Při úpravách stylu homepage je dobré zkontrolovat, jestli nemá smysl sladit i `msk.html`.
+
 ## Termíny – přehled stavů a vzory kódu
 
 V sekci "Vyber si svůj běh" (`#terminy`) se termíny zobrazují jako karty (`.term-card`). Každá karta může mít jeden ze tří stavů:
