@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravidla hackathonu — Strategický bootcamp</title>
+<meta name="description" content="Zásady, které platí pro všechny hackathony pořádané nebo zaštítěné Strategickým bootcampem. Co očekáváme, co očekávat můžeš ty.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Pravidla hackathonu — Strategický bootcamp">
+<meta property="og:description" content="Zásady, které platí pro všechny hackathony pořádané nebo zaštítěné Strategickým bootcampem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://strategickybootcamp.cz/pravidla-hackathonu.html">
+<meta property="og:image" content="https://strategickybootcamp.cz/images/budova-exterior.jpg">
+<meta property="og:locale" content="cs_CZ">
+
+<!-- Favicon (stejné jako homepage) -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="images/site.webmanifest">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* ===== Reset & base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+        --orange: #E8913A;
+        --orange-dark: #C67A25;
+        --orange-btn: #C67A25;
+        --magenta: #C4275D;
+        --black: #1A1A1A;
+        --warm-gray: #6B6963;
+        --light-bg: #F5F3EF;
+        --white: #FFFFFF;
+        --border: #E0DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--black);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: saturate(180%) blur(10px);
+        -webkit-backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid var(--border);
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .navbar-back {
+        display: flex;
+        align-items: center;
+        height: 58px;
+        overflow: hidden;
+        transition: opacity 0.2s ease;
+    }
+
+    .navbar-back:hover { opacity: 0.85; }
+
+    .navbar-logo { height: 92px; width: auto; }
+
+    .navbar-current {
+        font-size: 14px;
+        color: var(--warm-gray);
+        letter-spacing: 0.02em;
+    }
+
+    .navbar-current strong { color: var(--black); font-weight: 600; }
+
+    @media (max-width: 640px) {
+        .navbar-current { display: none; }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+        position: relative;
+        padding: 80px 0 100px;
+        background: linear-gradient(135deg, #FDF8F2 0%, #F5F3EF 100%);
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(232, 145, 58, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: -150px;
+        left: -100px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(196, 39, 93, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .eyebrow {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--magenta);
+        margin-bottom: 20px;
+        padding: 6px 14px;
+        background: rgba(196, 39, 93, 0.08);
+        border-radius: 60px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 5.5vw, 64px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+        max-width: 900px;
+    }
+
+    .hero h1 .accent {
+        background: linear-gradient(90deg, var(--orange) 0%, var(--magenta) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+        font-size: clamp(17px, 1.8vw, 20px);
+        color: var(--warm-gray);
+        max-width: 680px;
+        margin-bottom: 32px;
+        line-height: 1.6;
+    }
+
+    /* ===== Sections ===== */
+    section { padding: 80px 0; }
+
+    .section-label {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange-dark);
+        margin-bottom: 12px;
+    }
+
+    .section-title {
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        margin-bottom: 48px;
+        max-width: 800px;
+    }
+
+    /* ===== Prose (textové sekce) ===== */
+    .prose {
+        max-width: 760px;
+        font-size: 17px;
+        color: var(--warm-gray);
+        line-height: 1.7;
+    }
+
+    .prose p + p { margin-top: 16px; }
+
+    .prose ul, .prose ol {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        padding-left: 24px;
+    }
+
+    .prose li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .prose strong { color: var(--black); }
+
+    .pull-quote {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--black);
+        margin: 28px 0;
+        padding: 20px 24px;
+        border-left: 3px solid var(--orange);
+        background: linear-gradient(90deg, rgba(232, 145, 58, 0.04) 0%, transparent 100%);
+        line-height: 1.5;
+    }
+
+    /* ===== Expect grid (pro koho to NENÍ) ===== */
+    .expect-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-top: 48px;
+    }
+
+    @media (max-width: 900px) {
+        .expect-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .expect-item {
+        padding: 28px;
+        border-left: 3px solid var(--orange);
+        background: linear-gradient(90deg, rgba(232, 145, 58, 0.04) 0%, transparent 100%);
+    }
+
+    .expect-item h3 {
+        font-size: 19px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .expect-item p {
+        font-size: 15px;
+        color: var(--warm-gray);
+        line-height: 1.6;
+    }
+
+    /* ===== CTA block (finální sekce) ===== */
+    .save-the-date {
+        background: var(--black);
+        color: var(--white);
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .save-the-date .section-label { color: var(--orange); }
+
+    .save-the-date h2 {
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        margin: 0 auto 24px;
+        max-width: 780px;
+    }
+
+    .save-the-date h2 .accent {
+        background: linear-gradient(90deg, var(--orange) 0%, var(--magenta) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .save-the-date p {
+        font-size: 18px;
+        color: #BFBDB8;
+        max-width: 640px;
+        margin: 0 auto 36px;
+        line-height: 1.65;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 60px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: var(--orange-dark);
+        color: var(--white);
+    }
+
+    .btn-primary:hover {
+        background: var(--orange);
+        transform: translateY(-2px);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+        padding: 40px 0;
+        border-top: 1px solid var(--border);
+        font-size: 14px;
+        color: var(--warm-gray);
+    }
+
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .footer a {
+        color: var(--orange-dark);
+        font-weight: 500;
+    }
+
+    .footer a:hover { color: var(--magenta); }
+
+    /* ===== Reveal animation ===== */
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ===== Mobile tweaks ===== */
+    @media (max-width: 480px) {
+        section { padding: 60px 0; }
+        .hero { padding: 60px 0 80px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a href="/" class="navbar-back" aria-label="Zpět na homepage Strategického bootcampu">
+            <img src="images/logo_strategicky_bootcamp.png" alt="Strategický bootcamp" class="navbar-logo">
+        </a>
+        <div class="navbar-current">Pravidla hackathonu</div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <div class="container hero-inner">
+        <span class="eyebrow">Pro účastníky · Hackathony</span>
+        <h1>Pravidla hackathonu pořádaného<br><span class="accent">Strategickým bootcampem.</span></h1>
+        <p class="hero-lead">
+            Tyhle zásady platí pro všechny hackathony, které pořádáme
+            nebo zaštiťujeme, pokud konkrétní akce nemá vlastní specifická
+            pravidla. Smyslem je vytvořit den, kdy se hne věc, která se
+            ve všedním provozu těžko hýbe.
+        </p>
+    </div>
+</header>
+
+<!-- Sekce 2: Jak to bereme -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Jak to bereme</div>
+        <h2 class="section-title reveal">Hackathon = chráněný prostor pro tvůj důležitý výstup.</h2>
+        <p class="reveal" style="font-size: 17px; color: var(--warm-gray); max-width: 760px; line-height: 1.7;">
+            Když přijdeš na hackathon, hlavně tím vytváříš chráněný prostor pro
+            svůj důležitý výstup. Díky silné vazbě na Strategický bootcamp jsou
+            hackathony v našem pojetí jednodenní setkání jednotlivců s cílem
+            významně popojet s důležitým výstupem.
+        </p>
+        <p class="reveal" style="font-size: 17px; color: var(--warm-gray); max-width: 760px; line-height: 1.7; margin-top: 16px;">
+            Naše hackathony chrání hlubokou práci, proto klademe silný důraz na
+            individuální práci. Interakce probíhají omezeně — spíše jen na startu,
+            o přestávkách, na obědě, na konci. Pravidla pomáhají dostat ze dne maximum.
+        </p>
+    </div>
+</section>
+
+<!-- Sekce 3: Pro koho to NENÍ -->
+<section style="background: var(--light-bg);">
+    <div class="container">
+        <div class="section-label reveal">Důležitá filtrace</div>
+        <h2 class="section-title reveal">Pro koho to NENÍ.</h2>
+        <p class="reveal" style="font-size: 16px; color: var(--warm-gray); max-width: 720px; margin-bottom: 32px;">
+            Než se pustíme do pravidel, jedna upřímná filtrace.
+        </p>
+        <div class="expect-grid">
+            <div class="expect-item reveal">
+                <h3>Chceš si hlavně povídat?</h3>
+                <p>Tohle není akce pro tebe. Networking máme na jiných akcích.</p>
+            </div>
+            <div class="expect-item reveal">
+                <h3>Potřebuješ intenzivní vedení a průběžný feedback?</h3>
+                <p>Na to aktuálně nemáme kapacitu. Pokud se předem výslovně domluvíš s jiným účastníkem, je to OK — ale není to default.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 4: Před hackathonem -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Před hackathonem</div>
+        <h2 class="section-title reveal">Vyber si dobrý úkol.</h2>
+        <div class="prose">
+            <p class="reveal">
+                Cíl by měl být něco, co se vyplatí udělat najednou. Velký blok práce, který
+                se ti ve všedním tempu dělá špatně — protože potřebuje rozjezd, soustředění
+                a pořádný kus chráněného prostoru v kalendáři.
+            </p>
+            <p class="reveal">
+                Ne mikroúkoly, které stejně vyřídíš mezi mailem a obědem. Ne plánování
+                dalších úkolů. Něco, co by se reálně mělo udělat a co tě posune.
+            </p>
+            <div class="pull-quote reveal">
+                Vyber si jeden velký výstup nebo cíl. Raději ne tři. Jeden.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 5: Začátek dne -->
+<section style="background: var(--light-bg);">
+    <div class="container">
+        <div class="section-label reveal">Na začátku dne</div>
+        <h2 class="section-title reveal">Dvojí zacílení na lístečku.</h2>
+        <div class="prose">
+            <p class="reveal">
+                Než se pustíš do práce, vyjasni si — sám pro sebe — dvě věci:
+            </p>
+            <ol class="reveal">
+                <li><strong>Minimum.</strong> Bez čeho bys za normálních okolností nechtěl z hackathonu odejít.</li>
+                <li><strong>Vysněný výsledek.</strong> Z čeho bys byl nadšený, kdyby se ti to v průběhu dne povedlo.</li>
+            </ol>
+            <p class="reveal">
+                Napiš si to ve dvou kopiích na post-it lístečky. Jednu kopii si nech před sebou
+                na stole. Druhou dej Mirovi (nebo jinému pověřenému organizátorovi) se stručným
+                komentářem (max. 1–2 minuty). A pak už jen práce.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 6: Režim -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Tvůj režim</div>
+        <h2 class="section-title reveal">Pojmenuj si ho nahlas.</h2>
+        <div class="prose">
+            <p class="reveal">
+                Než začneš, řekni nahlas, v jakém režimu dnes pracuješ. Sociální sítě ano,
+                nebo ne? Telefon ztišit, nebo odbíhat na hovory? Sluchátka, aby tě ostatní
+                nerušili?
+            </p>
+            <p class="reveal">
+                <strong>Doporučený výchozí režim je tvrdá optimalizace na hlubokou práci:</strong>
+            </p>
+            <ul class="reveal">
+                <li>Sluchátka s sebou (tlumí případné ruchy a signalizují ostatním „nerušit")</li>
+                <li>Sociální sítě a notifikace nechat na jindy</li>
+                <li>Nech ostatní pracovat (pokud se na začátku nedomluvíte výslovně jinak) — popovídáte si třeba o přestávce nebo u oběda</li>
+                <li>Jasné hranice — když pracuješ, pracuješ</li>
+            </ul>
+            <p class="reveal">
+                Pokud potřebuješ vnější podporu, aby ses udržel — řekni si o ni. Nebráníme se
+                tomu zavést například <strong>kasičku</strong>: stovka pokaždé, když vlezeš na LinkedIn
+                (nebo kamkoliv, kde nemáš co dělat). Vymyslíme s tebou variantu, která sedne.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 7: Oběd -->
+<section style="background: var(--light-bg);">
+    <div class="container">
+        <div class="section-label reveal">Oběd</div>
+        <h2 class="section-title reveal">Domluvte se na začátku.</h2>
+        <div class="prose">
+            <p class="reveal">
+                Hned ráno si řekněte, jestli se jde <strong>na oběd společně, nebo si jídlo řeší
+                každý sám.</strong> Není v tom žádné správně — jen ať to není v poledne nepříjemné
+                překvapení.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 8: Během dne -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Během dne</div>
+        <h2 class="section-title reveal">Respektuj cizí soustředění.</h2>
+        <div class="prose">
+            <p class="reveal">
+                Hackathon stojí na tom, že vedle tebe pracují lidé, kteří to taky myslí
+                vážně. Když někdo zjevně pracuje, <strong>nevtahuj ho do rozhovorů.</strong> Ani s tím
+                nejlepším úmyslem. Konzultace, propojování a kontakty mají své místo
+                v přestávkách a po skončení.
+            </p>
+            <p class="reveal">
+                Pokud se s někým bavíte, <strong>jděte o patro níže k recepci</strong> — nerušte zbytečně
+                ostatní účastníky.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 9: Konec dne -->
+<section style="background: var(--light-bg);">
+    <div class="container">
+        <div class="section-label reveal">Na konci dne</div>
+        <h2 class="section-title reveal">Dvě minuty shrnutí.</h2>
+        <div class="prose">
+            <p class="reveal">
+                Neodcházej, aniž bys poctivě pořadateli hackathonu shrnul, kolik se ti
+                povedlo stihnout.
+            </p>
+            <p class="reveal">
+                <strong>Stačí dvě minuty.</strong> Stručně, věcně, bez velkých příběhů. Co bylo minimum,
+                co vysněný výsledek — a kde jsi reálně skončil.
+            </p>
+            <p class="reveal">
+                Slouží to tobě (zacyklit zkušenost a vědět, co se povedlo) i ostatním
+                (naučit se z toho, co fungovalo a kde se zaseklo).
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 10: Provozní detaily -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Provozní detaily</div>
+        <h2 class="section-title reveal">Pár věcí navíc.</h2>
+        <div class="prose">
+            <ul class="reveal">
+                <li><strong>Za svou přítomnost v coworku a dodržování pravidel pořadatele prostor odpovídá každý účastník sám.</strong> Nejsme tvoje chůva — jsme spoluúčastníci, kteří se snaží, aby den dobře dopadl.</li>
+                <li><strong>První návštěva coworku</strong> se zpravidla domluví přímo na recepci a bývá zdarma. Další návštěvy podle ceníku daného coworku (typicky denní vstup). Konkrétní podmínky najdeš vždy v pozvánce na danou akci.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Sekce 11: Finální CTA -->
+<section class="save-the-date">
+    <div class="container">
+        <div class="section-label reveal">A ještě jedno</div>
+        <h2 class="reveal">Žádné výmluvy.<br><span class="accent">Pojďme se sejít s něčím, co se hnulo.</span></h2>
+        <p class="reveal">
+            Zodpovědnost za vlastní cíl si neseš sám. Hackathon je den, kdy ti vytvoříme
+            co nejlepší podmínky — prostor, parťáky, tempo, klid. Co s tím uděláš, je
+            na tobě.
+        </p>
+        <p class="reveal" style="margin-bottom: 36px;">
+            Bez výmluv. Pojďme se sejít na konci dne s něčím, co se hnulo.
+        </p>
+        <a href="msk.html" class="btn btn-primary reveal">Aktuální termíny hackathonů →</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <div>© 2026 Strategický bootcamp. Organizuje Mira Vlach.</div>
+        <div><a href="/">← Zpět na hlavní stránku</a></div>
+    </div>
+</footer>
+
+<script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
