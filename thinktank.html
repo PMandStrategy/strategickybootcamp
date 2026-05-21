@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategický think tank — Rychlé a nezávislé strategické analýzy</title>
+<meta name="description" content="Druhá perspektiva, když rozhodnutí nesnese odklad. AI-augmentované strategické analýzy — pivot, investice, vstup na nový trh, prodej firmy.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Strategický think tank — Rychlé a nezávislé strategické analýzy">
+<meta property="og:description" content="Druhá perspektiva, když rozhodnutí nesnese odklad. Strukturovaný stress-test před klíčovým krokem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://strategickybootcamp.cz/thinktank">
+<meta property="og:image" content="https://strategickybootcamp.cz/images/budova-exterior.jpg">
+<meta property="og:locale" content="cs_CZ">
+
+<!-- Favicon -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="images/site.webmanifest">
+
+<!-- Google Fonts: DM Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --orange: #E8913A;
+  --orange-btn: #C67A25;
+  --magenta: #C4275D;
+  --black: #1A1A1A;
+  --light-bg: #F5F3EF;
+  --white: #FFFFFF;
+  --warm-gray: #6B6963;
+  --gradient: linear-gradient(135deg, #E8913A, #C4275D);
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(26,26,26,0.08);
+  --shadow-lg: 0 12px 48px rgba(26,26,26,0.12);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1rem, 2vw, 1.15rem); }
+
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange-btn);
+  margin-bottom: 0.75rem;
+}
+
+.section-header { margin-bottom: 3rem; }
+.section-header.centered { text-align: center; }
+
+.section-subtitle {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 680px;
+  margin-top: 0.75rem;
+}
+.section-header.centered .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  border-radius: 60px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--orange-btn);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(198,122,37,0.35);
+}
+.btn-primary:hover {
+  background: #b06c1f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(198,122,37,0.45);
+}
+
+.btn-dark {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid #E8E5E0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navbar-logo-wrap {
+  display: flex;
+  align-items: center;
+  height: 58px;
+  overflow: hidden;
+}
+.navbar-logo-wrap img { height: 92px; width: auto; }
+
+.navbar-label {
+  font-size: 0.875rem;
+  color: var(--warm-gray);
+  font-weight: 500;
+}
+
+/* ========== SECTIONS ========== */
+section { padding: 96px 0; }
+section.bg-light { background: var(--light-bg); }
+section.bg-white { background: var(--white); }
+section.bg-dark {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== HERO ========== */
+.hero {
+  padding: 80px 0 100px;
+  background: linear-gradient(135deg, #FDF8F2 0%, #F5F3EF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(232,145,58,0.14) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  left: -80px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(196,39,93,0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  padding: 6px 16px;
+  background: rgba(196,39,93,0.09);
+  border-radius: 60px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--warm-gray);
+  max-width: 700px;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+}
+
+/* ========== PRO KOHO ========== */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.persona-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border: 1px solid #E8E5E0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.persona-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.persona-role {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--magenta);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.persona-role::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--magenta);
+  flex-shrink: 0;
+}
+
+.persona-card p {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+}
+
+/* ========== TŘI FORMÁTY ========== */
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.format-card {
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border: 1px solid #E8E5E0;
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+
+.format-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Stupňovaná vizuální váha */
+.format-card.tier-1 {
+  border-style: dashed;
+}
+
+.format-card.tier-2 {
+  border-color: #C8C4BE;
+  box-shadow: 0 2px 12px rgba(26,26,26,0.05);
+}
+
+.format-card.tier-3 {
+  border-color: var(--orange-btn);
+  box-shadow: 0 4px 24px rgba(198,122,37,0.12);
+}
+
+.format-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.format-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.format-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.format-meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.875rem;
+}
+
+.format-meta-label {
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  min-width: 72px;
+}
+
+.format-meta-value {
+  color: var(--warm-gray);
+  line-height: 1.5;
+}
+
+.format-note {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #E8E5E0;
+  font-size: 0.825rem;
+  color: var(--warm-gray);
+  font-style: italic;
+}
+
+/* ========== JAK TO PROBÍHÁ — 4 kroky ========== */
+.steps-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.steps-4::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5% + 12px);
+  right: calc(12.5% + 12px);
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--orange-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--orange-btn);
+  margin: 0 auto 1.2rem;
+}
+
+.step h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.step p {
+  font-size: 0.875rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* ========== DISCLAIMER ========== */
+.disclaimer-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 48px;
+  border-left: 4px solid var(--orange);
+  box-shadow: var(--shadow);
+  max-width: 860px;
+}
+
+.disclaimer-box p {
+  font-size: 0.975rem;
+  color: var(--warm-gray);
+  line-height: 1.8;
+}
+
+.disclaimer-box p + p {
+  margin-top: 1.25rem;
+}
+
+.disclaimer-box strong {
+  color: var(--black);
+}
+
+/* ========== DIFERENCIÁTOR ========== */
+.diferenciator-block {
+  max-width: 820px;
+}
+
+.diferenciator-block p {
+  font-size: 1.05rem;
+  color: var(--warm-gray);
+  line-height: 1.85;
+}
+
+.diferenciator-block strong {
+  color: var(--black);
+}
+
+/* ========== FINAL CTA ========== */
+.final-cta { text-align: center; }
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,145,58,0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,39,93,0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta .container { position: relative; z-index: 1; }
+
+.final-cta h2 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+.final-cta .cta-sub {
+  color: rgba(255,255,255,0.72);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+}
+
+.cta-secondary {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  transition: color var(--transition);
+}
+
+.cta-secondary a {
+  color: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.cta-secondary a:hover {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* ========== FOOTER ========== */
+.page-footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.footer-back:hover { color: rgba(255,255,255,0.9); }
+
+/* ========== REVEAL ANIMATION ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 900px) {
+  .format-grid { grid-template-columns: 1fr; gap: 16px; }
+  .steps-4 { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .steps-4::before { display: none; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 64px 0; }
+  .persona-grid { grid-template-columns: 1fr; }
+  .steps-4 { grid-template-columns: 1fr; }
+  .disclaimer-box { padding: 28px 24px; }
+  .navbar-label { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 60px 0 72px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" aria-label="Zpět na Strategický bootcamp">
+      <div class="navbar-logo-wrap">
+        <img src="images/logo_strategicky_bootcamp.png" alt="Strategický bootcamp">
+      </div>
+    </a>
+    <span class="navbar-label">Strategický think tank</span>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner reveal">
+      <span class="hero-eyebrow">Strategický think tank &mdash; rychlé a nezávislé strategické analýzy</span>
+      <h1>Druhá perspektiva, když rozhodnutí nesnese odklad.</h1>
+      <p class="hero-lead">Pivot. Investice. Nástup AI a související změny na trhu. Vstup na nový trh. Prodej firmy. Strategická rozhodnutí, která jde jen obtížně vrátit zpět. Tady je strukturovaný stress-test — pohled, který můžete probrat ve firmě, než se zavážete k rozhodnutí. AI-augmentovaný proces vám nabídne během pár dnů podklady, které by tradiční poradenský tým tvořil měsíce.</p>
+      <a href="mailto:mv@mira-vlach.cz" class="btn btn-primary">Domluvit nezávaznou konzultaci &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRO KOHO ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Pro koho to je</span>
+      <h2>Pro koho to je</h2>
+    </div>
+
+    <div class="persona-grid reveal">
+      <div class="persona-card">
+        <div class="persona-role">CEO firmy</div>
+        <p>Stojíte před rozhodnutím, které přesahuje běžnou operativu. Potřebujete pohled, který je nezávislý na vašem týmu i běžném poradenském okruhu.</p>
+      </div>
+      <div class="persona-card">
+        <div class="persona-role">Vlastník / family office</div>
+        <p>Generační přechod, prodej, investice. Strategická vrstva, kterou nedostanete od právníka ani auditora.</p>
+      </div>
+      <div class="persona-card">
+        <div class="persona-role">Board / dozorčí rada</div>
+        <p>Druhý pohled na záměr managementu. Strukturovaná oponentura připravená do podkladů na zasedání.</p>
+      </div>
+      <div class="persona-card">
+        <div class="persona-role">Freelancer / kariérní změna</div>
+        <p>Přechod na volnou nohu, změna oboru nebo vsazení na nový segment. Strukturovaný pohled před krokem, který mění profesní trajektorii na roky dopředu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TŘI FORMÁTY ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Formáty</span>
+      <h2>Tři formáty podle toho, co řešíš</h2>
+    </div>
+
+    <div class="format-grid reveal">
+
+      <div class="format-card tier-1">
+        <div class="format-num">1</div>
+        <h3>Single perspektiva</h3>
+        <div class="format-meta">
+          <div class="format-meta-item">
+            <span class="format-meta-label">Pro koho</span>
+            <span class="format-meta-value">Founder / manažer před rozhodnutím za 48–72 hodin</span>
+          </div>
+          <div class="format-meta-item">
+            <span class="format-meta-label">Čas</span>
+            <span class="format-meta-value">3–5 dní</span>
+          </div>
+          <div class="format-meta-item">
+            <span class="format-meta-label">Cena</span>
+            <span class="format-meta-value">Od středních jednotek tisíc Kč</span>
+          </div>
+        </div>
+        <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--warm-gray); line-height: 1.6;">Jedna konkrétní otázka, jeden strukturovaný pohled. Rychlý health check před rozhodnutím.</p>
+      </div>
+
+      <div class="format-card tier-2">
+        <div class="format-num">2</div>
+        <h3>Mini-balíček</h3>
+        <div class="format-meta">
+          <div class="format-meta-item">
+            <span class="format-meta-label">Pro koho</span>
+            <span class="format-meta-value">SMB CEO, board member před zásadním krokem</span>
+          </div>
+          <div class="format-meta-item">
+            <span class="format-meta-label">Čas</span>
+            <span class="format-meta-value">3–5 dní</span>
+          </div>
+          <div class="format-meta-item">
+            <span class="format-meta-label">Cena</span>
+            <span class="format-meta-value">V řádu nízkých desítek tisíc Kč</span>
+          </div>
+        </div>
+        <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--warm-gray); line-height: 1.6;">Kombinace 2–3 příbuzných pohledů. Hloubkový pohled na téma z více úhlů.</p>
+      </div>
+
+      <div class="format-card tier-3">
+        <div class="format-num">3</div>
+        <h3>Plná analýza</h3>
+        <div class="format-meta">
+          <div class="format-meta-item">
+            <span class="format-meta-label">Pro koho</span>
+            <span class="format-meta-value">Board, majitel firmy, family office, VC</span>
+          </div>
+          <div class="format-meta-item">
+            <span class="format-meta-label">Čas</span>
+            <span class="format-meta-value">1–2 týdny</span>
+          </div>
+          <div class="format-meta-item">
+            <span class="format-meta-label">Cena</span>
+            <span class="format-meta-value">V řádu desítek tisíc Kč</span>
+          </div>
+        </div>
+        <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--warm-gray); line-height: 1.6;">Multi-perspektivní stress-test. Kombinace strategických rámců, sektorové analýzy, scénářů a oponentury.</p>
+        <p class="format-note">Zahajujeme po předchozí konzultaci — kapacita je omezená.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== JAK TO PROBÍHÁ ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="section-label">Proces</span>
+      <h2>Jak to celé probíhá</h2>
+    </div>
+
+    <div class="steps-4 reveal">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Krátká úvodní konzultace</h3>
+        <p>Probereme téma, kontext a co od analýzy potřebuješ. Řekneme ti, jaký formát dává smysl a kolik to bude stát.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Příprava podkladů</h3>
+        <p>Sesbíráme veřejné a polo-veřejné zdroje, propojíme s tvým kontextem. Zachováváme důvěrnost — co dáš ty, zůstává mezi námi.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Strukturovaná analýza</h3>
+        <p>Pohled projde strukturovaným procesem — sektorová expertiza, strategické rámce, oponentura, syntéza.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Výstup, který se používá</h3>
+        <p>Dokument, ze kterého se rozhoduje. Konkrétní teze, rizika, doporučení, otevřené otázky. Plus následná diskuse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DISCLAIMER ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Otevřeně</span>
+      <h2>Co tady neslibujeme</h2>
+    </div>
+
+    <div class="disclaimer-box reveal">
+      <p><strong>AI-augmentovaný proces znamená, že velká část analýzy běží přes umělou inteligenci.</strong> AI škáluje to, co by tradiční tým dělal lidskou prací — sektorové analýzy, syntézy, scénáře. Na druhou stranu AI dělá chyby a občas si vymýšlí. Toto se snažíme kompenzovat poctivou lidskou kurátorskou vrstvou.</p>
+      <p><strong>Nedáváme záruky výsledku.</strong> Strategická rozhodnutí jsou vaše — my dáváme strukturu, perspektivu a oponentury. To, co s tím uděláte, je na vás.</p>
+      <p><strong>Nenahrazujeme velké poradenské domy.</strong> Nahrazujeme chybějící druhou perspektivu v situacích, kdy si firma velkou poradenskou firmu nemůže nebo nechce dovolit — a zároveň potřebuje něco serióznějšího než ranní brainstorming v kanceláři.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DIFERENCIÁTOR ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Proč právě tady</span>
+      <h2>Proč právě tahle dvojice — strategie a exekuce</h2>
+    </div>
+
+    <div class="diferenciator-block reveal">
+      <p>Strategická druhá perspektiva od někoho, kdo rozumí strategii i její exekuci. <strong>Mira Vlach</strong> už 20 let pracuje s firmami na strategických projektech a řízení projektového portfolia, je expertem na framework OKR (Objectives &amp; Key Results), vede Projektový klub (107 setkání, 1&nbsp;000+ účastníků z praxe) a má za sebou doložitelné reference z veřejné správy i komerčního sektoru.</p>
+      <p style="margin-top: 1rem;">Při tvorbě strategických analýz kombinujeme <strong>silné zázemí ve strategii a její realizaci</strong> s pokročilou AI analýzou.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ZÁVĚREČNÉ CTA ==================== -->
+<section class="bg-dark final-cta">
+  <div class="container">
+    <div class="reveal">
+      <h2>Stojíš před rozhodnutím, které čeká na druhou perspektivu?</h2>
+      <p class="cta-sub">Začneme nezávaznou krátkou konzultací. Z toho ti řekneme, jestli má smysl jít dál — a v jakém formátu. Žádné prezentace, žádné generické nabídky.</p>
+      <a href="mailto:mv@mira-vlach.cz" class="btn btn-dark">Domluvit konzultaci &rarr;</a>
+      <span class="cta-secondary">Nebo napiš rovnou: <a href="mailto:mv@mira-vlach.cz">mv@mira-vlach.cz</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="page-footer">
+  <a href="/" class="footer-back">&larr; Zpět na hlavní stránku</a>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+(function() {
+  'use strict';
+
+  const revealEls = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
