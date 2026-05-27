@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strategický think tank — Rychlé a nezávislé strategické analýzy</title>
-<meta name="description" content="Druhá perspektiva, když rozhodnutí nesnese odklad. AI-augmentované strategické analýzy — pivot, investice, vstup na nový trh, prodej firmy.">
+<title>Strategický bootcamp - Analytická divize: Rychlé a nezávislé strategické analýzy</title>
+<meta name="description" content="Druhá perspektiva pro klíčová strategická rozhodnutí. AI-augmentované strategické analýzy: pivot, investice, vstup na nový trh, prodej firmy.">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Strategický think tank — Rychlé a nezávislé strategické analýzy">
-<meta property="og:description" content="Druhá perspektiva, když rozhodnutí nesnese odklad. Strukturovaný stress-test před klíčovým krokem.">
+<meta property="og:title" content="Strategický bootcamp - Analytická divize: Rychlé a nezávislé strategické analýzy">
+<meta property="og:description" content="Druhá perspektiva pro klíčová strategická rozhodnutí. Strukturovaný a přehledný podklad před klíčovým krokem.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://strategickybootcamp.cz/thinktank">
 <meta property="og:image" content="https://strategickybootcamp.cz/images/budova-exterior.jpg">
@@ -251,6 +251,14 @@ section.bg-dark {
   gap: 20px;
 }
 
+/* Osamělý sirotek v posledním řádku se vycentruje na šířku jedné karty */
+.persona-grid > .persona-card:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: calc((100% - 20px) / 2);
+}
+
 .persona-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -288,6 +296,79 @@ section.bg-dark {
   font-size: 0.9rem;
   color: var(--warm-gray);
   line-height: 1.65;
+}
+
+/* ========== ČASTÉ TYPY ANALÝZ ========== */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Osamělý sirotek v posledním řádku se vycentruje na šířku jedné karty */
+.analysis-grid > .analysis-card:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: calc((100% - 20px) / 2);
+}
+
+.analysis-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  border: 1px solid #E8E5E0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.analysis-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.analysis-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.analysis-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+.analysis-title-extra {
+  flex-basis: 100%;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  padding-left: 18px;
+  line-height: 1.4;
+}
+
+.analysis-card p {
+  font-size: 0.92rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+}
+
+.analysis-card p + p {
+  margin-top: 0.65rem;
+}
+
+.analysis-card p.placeholder {
+  color: #B5B0A8;
+  font-style: italic;
 }
 
 /* ========== TŘI FORMÁTY ========== */
@@ -578,6 +659,7 @@ section.bg-dark {
 @media (max-width: 768px) {
   section { padding: 64px 0; }
   .persona-grid { grid-template-columns: 1fr; }
+  .analysis-grid { grid-template-columns: 1fr; }
   .steps-4 { grid-template-columns: 1fr; }
   .disclaimer-box { padding: 28px 24px; }
   .navbar-label { display: none; }
@@ -607,9 +689,9 @@ section.bg-dark {
   <div class="container">
     <div class="hero-inner reveal">
       <span class="hero-eyebrow">Strategický think tank &mdash; rychlé a nezávislé strategické analýzy</span>
-      <h1>Druhá perspektiva, když rozhodnutí nesnese odklad.</h1>
-      <p class="hero-lead">Pivot. Investice. Nástup AI a související změny na trhu. Vstup na nový trh. Prodej firmy. Strategická rozhodnutí, která jde jen obtížně vrátit zpět. Tady je strukturovaný stress-test — pohled, který můžete probrat ve firmě, než se zavážete k rozhodnutí. AI-augmentovaný proces vám nabídne během pár dnů podklady, které by tradiční poradenský tým tvořil měsíce.</p>
-      <a href="mailto:mv@mira-vlach.cz" class="btn btn-primary">Domluvit nezávaznou konzultaci &rarr;</a>
+      <h1>Druhá perspektiva pro klíčová strategická rozhodnutí.</h1>
+      <p class="hero-lead">Akvizice. Pivot. Investice. Nástup AI a související změny na trhu. Vstup na nový trh. Prodej firmy. Strategická rozhodnutí, která mají klíčový dopad. Často jde o rozhodnutí nezvratná. Právě v těchto případech můžete je nezávislá strategická analýza skvělý pomocník. Strukturovaný pohled, který můžete probrat ve firmě, než se zavážete k rozhodnutí. AI-augmentovaný proces vám nabídne během pár dnů podklady, které by tradiční poradenský tým tvořil měsíce.</p>
+      <a href="mailto:mv@miravlach.cz" class="btn btn-primary">Domluvit nezávaznou konzultaci &rarr;</a>
     </div>
   </div>
 </section>
@@ -639,16 +721,61 @@ section.bg-dark {
         <div class="persona-role">Freelancer / kariérní změna</div>
         <p>Přechod na volnou nohu, změna oboru nebo vsazení na nový segment. Strukturovaný pohled před krokem, který mění profesní trajektorii na roky dopředu.</p>
       </div>
+      <div class="persona-card">
+        <div class="persona-role">Společníci ve firmě</div>
+        <p>Pomáhá sladit pohled na strategii a překlenout neshody o tom, kam firmu vést.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ČASTÉ TYPY ANALÝZ ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Co řešíme</span>
+      <h2>Časté typy analýz</h2>
+    </div>
+
+    <div class="analysis-grid reveal">
+      <div class="analysis-card">
+        <div class="analysis-title">Strategic Directions Atlas</div>
+        <p>Unikátní pohled na strategii, který přehledně mapuje terén a možnosti, kam se s firmou vydat. Nedává jedno direktivní doporučení, ale ukazuje směry a definuje podmínky, kdy který směr dává nebo naopak nedává smysl. Skvělý podklad pro diskuzi.</p>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-title">AI stress-test</div>
+        <p>Komplexní a detailní analýza, která pomocí dostupných informací nestranně a přímočaře modeluje, nakolik bude váš obor pravděpodobně ovlivněný nástupem AI. Můžete tak včas začít plánovat strategické směry a reagovat na změny, aby vaše firma byla dlouhodobě úspěšná.</p>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-title">AI adaptace</div>
+        <p>Zaměřeno na důsledné zmapování a modelování možných směrů adaptace na nástup AI podle silných stránek a aktuální situace vaší firmy. Zahrnuje krátkodobý, střednědobý i dlouhodobý horizont.</p>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-title">M&amp;A</div>
+        <p>Koupit, nebo nekoupit? Prodat, nebo neprodat? V této oblasti se specializujeme hlavně na strategický pohled (hlubokou analýzu dlouhodobých trendů, synergie atp.), který skvěle doplňuje základní pohled analýzy historických čísel firmy.</p>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-title">
+          <span>Sektorové trendy</span>
+          <span class="analysis-title-extra">(regulace, technologie, geopolitika, demografie, wild cards…)</span>
+        </div>
+        <p>Umíme zpracovat obecně nebo přímo firmě na míru. Pokročilou a komplexní vícekrokovou AI analýzou dostanete ucelený pohled, který zohledňuje nadlidské množství informací z naší znalostní báze, kterou dlouhodobě rozšiřujeme a pravidelně aktualizujeme o novinky.</p>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-title">Mezigenerační předání rodinné firmy</div>
+        <p>Vychází z dobré praxe pro předání řízení na další generaci a nabízí pevné základy pro tento klíčový proces. Tvoříme vždy s důrazem na citlivou podpůrnou facilitaci procesu a na zachování dobrých rodinných vztahů.</p>
+        <p>V případě zájmu může zahrnovat i variantu prodeje firmy spolu s doporučeními, jak firmu co nejlépe připravit na prodej pro maximalizaci prodejní ceny.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== TŘI FORMÁTY ==================== -->
-<section class="bg-light">
+<section class="bg-white">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Formáty</span>
-      <h2>Tři formáty podle toho, co řešíš</h2>
+      <h2>Tři formáty podle toho, co řešíte</h2>
     </div>
 
     <div class="format-grid reveal">
@@ -711,7 +838,7 @@ section.bg-dark {
           </div>
         </div>
         <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--warm-gray); line-height: 1.6;">Multi-perspektivní stress-test. Kombinace strategických rámců, sektorové analýzy, scénářů a oponentury.</p>
-        <p class="format-note">Zahajujeme po předchozí konzultaci — kapacita je omezená.</p>
+        <p class="format-note">Zahajujeme po předchozí konzultaci. Kapacita je omezená.</p>
       </div>
 
     </div>
@@ -719,7 +846,7 @@ section.bg-dark {
 </section>
 
 <!-- ==================== JAK TO PROBÍHÁ ==================== -->
-<section class="bg-white">
+<section class="bg-light">
   <div class="container">
     <div class="section-header centered reveal">
       <span class="section-label">Proces</span>
@@ -730,17 +857,17 @@ section.bg-dark {
       <div class="step">
         <div class="step-number">1</div>
         <h3>Krátká úvodní konzultace</h3>
-        <p>Probereme téma, kontext a co od analýzy potřebuješ. Řekneme ti, jaký formát dává smysl a kolik to bude stát.</p>
+        <p>Probereme téma, kontext a co od analýzy potřebujete. Řekneme vám, jaký formát dává smysl a kolik to bude stát.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
         <h3>Příprava podkladů</h3>
-        <p>Sesbíráme veřejné a polo-veřejné zdroje, propojíme s tvým kontextem. Zachováváme důvěrnost — co dáš ty, zůstává mezi námi.</p>
+        <p>Sesbíráme veřejné a polo-veřejné zdroje, po domluvě propojíme s vaším kontextem. Zachováváme důvěrnost. Analýza dlouhodobých sektorových trendů je možná i bez vašich dat.</p>
       </div>
       <div class="step">
         <div class="step-number">3</div>
         <h3>Strukturovaná analýza</h3>
-        <p>Pohled projde strukturovaným procesem — sektorová expertiza, strategické rámce, oponentura, syntéza.</p>
+        <p>Pohled projde strukturovaným procesem: sektorová expertiza, strategické rámce, oponentura, syntéza.</p>
       </div>
       <div class="step">
         <div class="step-number">4</div>
@@ -752,7 +879,7 @@ section.bg-dark {
 </section>
 
 <!-- ==================== DISCLAIMER ==================== -->
-<section class="bg-light">
+<section class="bg-white">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Otevřeně</span>
@@ -760,23 +887,23 @@ section.bg-dark {
     </div>
 
     <div class="disclaimer-box reveal">
-      <p><strong>AI-augmentovaný proces znamená, že velká část analýzy běží přes umělou inteligenci.</strong> AI škáluje to, co by tradiční tým dělal lidskou prací — sektorové analýzy, syntézy, scénáře. Na druhou stranu AI dělá chyby a občas si vymýšlí. Toto se snažíme kompenzovat poctivou lidskou kurátorskou vrstvou.</p>
-      <p><strong>Nedáváme záruky výsledku.</strong> Strategická rozhodnutí jsou vaše — my dáváme strukturu, perspektivu a oponentury. To, co s tím uděláte, je na vás.</p>
-      <p><strong>Nenahrazujeme velké poradenské domy.</strong> Nahrazujeme chybějící druhou perspektivu v situacích, kdy si firma velkou poradenskou firmu nemůže nebo nechce dovolit — a zároveň potřebuje něco serióznějšího než ranní brainstorming v kanceláři.</p>
+      <p><strong>AI-augmentovaný proces znamená, že velká část analýzy běží přes umělou inteligenci.</strong> AI škáluje to, co by tradiční tým dělal lidskou prací: sektorové analýzy, syntézy, scénáře. Na druhou stranu AI dělá chyby a občas si vymýšlí. Toto se snažíme kompenzovat poctivou lidskou kurátorskou vrstvou.</p>
+      <p><strong>Nedáváme záruky výsledku.</strong> Strategická rozhodnutí jsou vaše. My dáváme strukturu, perspektivu a oponentury. To, co s tím uděláte, je na vás.</p>
+      <p><strong>Nenahrazujeme velké poradenské domy.</strong> Nahrazujeme chybějící druhou perspektivu v situacích, kdy si firma velkou poradenskou firmu nemůže nebo nechce dovolit, a zároveň potřebuje něco serióznějšího než ranní brainstorming v kanceláři.</p>
     </div>
   </div>
 </section>
 
 <!-- ==================== DIFERENCIÁTOR ==================== -->
-<section class="bg-white">
+<section class="bg-light">
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Proč právě tady</span>
-      <h2>Proč právě tahle dvojice — strategie a exekuce</h2>
+      <h2>Klíčová kombinace: strategie a exekuce</h2>
     </div>
 
     <div class="diferenciator-block reveal">
-      <p>Strategická druhá perspektiva od někoho, kdo rozumí strategii i její exekuci. <strong>Mira Vlach</strong> už 20 let pracuje s firmami na strategických projektech a řízení projektového portfolia, je expertem na framework OKR (Objectives &amp; Key Results), vede Projektový klub (107 setkání, 1&nbsp;000+ účastníků z praxe) a má za sebou doložitelné reference z veřejné správy i komerčního sektoru.</p>
+      <p>Strategická druhá perspektiva od někoho, kdo rozumí strategii i její exekuci. Náš hlavní analytik <strong>Mira Vlach</strong> už 20 let pracuje s firmami na strategických projektech a řízení projektového portfolia, je expertem na framework OKR (Objectives &amp; Key Results), vede Projektový klub (110+ setkání, 1&nbsp;000+ účastníků z praxe) a má za sebou doložitelné reference z veřejné správy i komerčního sektoru.</p>
       <p style="margin-top: 1rem;">Při tvorbě strategických analýz kombinujeme <strong>silné zázemí ve strategii a její realizaci</strong> s pokročilou AI analýzou.</p>
     </div>
   </div>
@@ -786,10 +913,10 @@ section.bg-dark {
 <section class="bg-dark final-cta">
   <div class="container">
     <div class="reveal">
-      <h2>Stojíš před rozhodnutím, které čeká na druhou perspektivu?</h2>
-      <p class="cta-sub">Začneme nezávaznou krátkou konzultací. Z toho ti řekneme, jestli má smysl jít dál — a v jakém formátu. Žádné prezentace, žádné generické nabídky.</p>
-      <a href="mailto:mv@mira-vlach.cz" class="btn btn-dark">Domluvit konzultaci &rarr;</a>
-      <span class="cta-secondary">Nebo napiš rovnou: <a href="mailto:mv@mira-vlach.cz">mv@mira-vlach.cz</a></span>
+      <h2>Stojíte před klíčovým rozhodnutím, které má zásadní vliv na budoucnost firmy?</h2>
+      <p class="cta-sub">Začneme nezávaznou krátkou konzultací. Z toho vám řekneme, jestli má smysl jít dál a v jakém formátu. Žádné prezentace, žádné generické nabídky.</p>
+      <a href="mailto:mv@miravlach.cz" class="btn btn-dark">Domluvit konzultaci &rarr;</a>
+      <span class="cta-secondary">Nebo si <a href="mailto:mv@miravlach.cz?subject=Ukázka%20analýzy">napište o ukázku analýzy</a></span>
     </div>
   </div>
 </section>
