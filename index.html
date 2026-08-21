@@ -619,18 +619,39 @@ section:nth-child(even) { background: var(--light-bg); }
 .badge-open { background: var(--magenta); color: var(--white); }
 .badge-planned { background: #F0EDE8; color: var(--warm-gray); }
 
-/* Varianty (ONLINE / PLNÁ) */
-.term-badges {
+/* Varianty (ONLINE / PLNÁ) — typografický nadpis */
+.term-variant {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
   margin-bottom: 1.2rem;
 }
-.term-badges .term-badge { margin-bottom: 0; }
 
-.badge-variant-online { background: #E6EFFA; color: #345885; }
-.badge-variant-full { background: #F4E0CB; color: var(--orange-btn); }
+.term-variant-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.term-variant-label {
+  font-size: 0.75rem;
+  color: var(--warm-gray);
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+.variant-online .term-variant-name { color: #345885; }
+.variant-full .term-variant-name { color: var(--orange-btn); }
+
+/* Sirotek v gridu (např. 3 karty ve 2 sloupcích) — vycentrovaný na šířku jedné karty */
+.term-cards > .term-card:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: calc((100% - 28px) / 2);
+}
 
 .term-dates {
   font-size: 1.4rem;
@@ -1391,33 +1412,34 @@ section.final-cta {
     </div>
 
     <div class="term-cards reveal">
-      <div class="term-card active">
-        <div class="term-badges">
-          <span class="term-badge badge-open">Otevřeny přihlášky</span>
-          <span class="term-badge badge-variant-online">ONLINE varianta</span>
+      <div class="term-card inactive">
+        <div class="term-variant variant-online">
+          <span class="term-variant-name">ONLINE</span>
+          <span class="term-variant-label">varianta</span>
         </div>
-        <div class="term-dates">Konec: 2. 9. 2026</div>
+        <span class="term-badge badge-closed">Nábor ukončen</span>
+        <div class="term-dates">24. 6. — 2. 9. 2026</div>
         <p class="term-info">3. běh &middot; klouzavé starty</p>
-        <div class="term-starts">
-          <div class="term-starts-label">Vyber si svůj start</div>
-          <ul class="term-starts-list">
-            <li><strong>24. 6.</strong><span>10 týdnů</span><em class="running-tag">běží</em></li>
-            <li><strong>29. 6.</strong><span>9 týdnů</span><em class="running-tag">běží</em></li>
-            <li><strong>14. 7.</strong><span>7 týdnů</span><em class="running-tag">běží</em></li>
-            <li><strong>22. 7.</strong><span>6 týdnů</span><em class="running-tag">běží</em></li>
-            <li><strong>5. 8.</strong><span>4 týdny</span></li>
-          </ul>
-        </div>
-        <a href="https://forms.gle/XiruK9kQ4CKkRjVk6" target="_blank" rel="noopener" class="btn btn-primary">Přihlásit se &rarr;</a>
       </div>
       <div class="term-card active">
-        <div class="term-badges">
-          <span class="term-badge badge-open">Otevřeny přihlášky</span>
-          <span class="term-badge badge-variant-full">PLNÁ varianta</span>
+        <div class="term-variant variant-full">
+          <span class="term-variant-name">PLNÁ</span>
+          <span class="term-variant-label">varianta</span>
         </div>
+        <span class="term-badge badge-open">Otevřeny přihlášky</span>
         <div class="term-dates">17. 9. — 29. 10. 2026</div>
         <p class="term-info">4. běh &middot; 6 týdnů</p>
         <p class="term-extra">Kickoff v Ostravě, práce odkudkoliv.</p>
+        <a href="https://forms.gle/XiruK9kQ4CKkRjVk6" target="_blank" rel="noopener" class="btn btn-primary">Přihlásit se &rarr;</a>
+      </div>
+      <div class="term-card active">
+        <div class="term-variant variant-online">
+          <span class="term-variant-name">ONLINE</span>
+          <span class="term-variant-label">varianta</span>
+        </div>
+        <span class="term-badge badge-open">Otevřeny přihlášky</span>
+        <div class="term-dates">18. 11. — 16. 12. 2026</div>
+        <p class="term-info">5. běh &middot; 4 týdny</p>
         <a href="https://forms.gle/XiruK9kQ4CKkRjVk6" target="_blank" rel="noopener" class="btn btn-primary">Přihlásit se &rarr;</a>
       </div>
     </div>
