@@ -12,6 +12,15 @@ Repo obsahuje dvě veřejné stránky:
 
 - Patička každé podstránky (současné i budoucí) obsahuje LinkedIn ikonu (inline SVG, stejná jako na homepage, `class="footer-linkedin"`) s odkazem na `https://www.linkedin.com/company/strategicky-bootcamp/` — na stejném řádku hned vedle „© 2026 Strategický bootcamp“. Vzor viz patička `next-step-party.html` nebo `msk.html`.
 
+### Konvence URL (pretty URLs)
+
+Site běží na GitHub Pages, který automaticky servíruje HTML stránky bez `.html` přípony. Interní odkazy a `<meta property="og:url">` proto **vždy píšeme bez `.html`**:
+
+- ✅ `<a href="next-step-party">` / `<meta property="og:url" content="https://strategickybootcamp.cz/next-step-party">`
+- ❌ `<a href="next-step-party.html">` / `content=".../next-step-party.html"`
+
+Staré `.html` URL (např. sdílené z LinkedInu nebo emailů) zůstávají funkční — GitHub Pages servíruje obě verze. Konvence je jen o tom, co sami generujeme.
+
 ## Termíny – přehled stavů a vzory kódu
 
 V sekci "Vyber si svůj běh" (`#terminy`) se termíny zobrazují jako karty (`.term-card`). Každá karta může mít jeden ze tří stavů:
