@@ -87,13 +87,34 @@ V sekci "Vyber si svůj běh" (`#terminy`) se termíny zobrazují jako karty (`.
 .badge-planned { background: #F0EDE8; color: var(--warm-gray); }
 ```
 
+### 4. Přihlašování ukončeno (registrace uzavřená, běh ještě neproběhl)
+
+Hybridní mezistav mezi `active` a `inactive`. Použij, když registrace byla uzavřená (kapacita naplněná, deadline uplynul, kickoff proběhl), ale běh sám ještě běží nebo teprve začíná — kartu chceš na webu nechat jako informaci, jen ji přepnout do „nekliknuvatelného" stavu.
+
+- **CSS třídy:** `.term-card.active` (vizuál zůstává jako u aktivního běhu — orange border, box-shadow, box vizuálně stále vyniká) + `.term-badge.badge-closed` (šedý badge)
+- **Badge text:** `Přihlašování ukončeno`
+- **CTA:** místo `<a>` odkazu se použije neaktivní `<span class="btn">` s inline stylem (šedé pozadí, warm-gray text, `cursor: default`, bez box-shadow) a stejným textem „Přihlašování ukončeno".
+- **Neexistuje samostatná CSS třída** — je to složenina existujících (`.active` + `.badge-closed` + inline styled span).
+
+```html
+<div class="term-card active">
+  <span class="term-badge badge-closed">Přihlašování ukončeno</span>
+  <div class="term-dates">17. 9. — 29. 10. 2026</div>
+  <p class="term-info">4. běh &middot; 6 týdnů</p>
+  <span class="btn" style="background: #E8E5E0; color: var(--warm-gray); cursor: default; box-shadow: none;">Přihlašování ukončeno</span>
+</div>
+```
+
+Stejný pattern (disabled `<span class="btn">` místo CTA odkazu) je použit i pro proběhlé události na `/next-step-party` — tam s textem „Proběhlo".
+
 ### Přechodový scénář
 
 Typický životní cyklus karty termínu:
 1. `planned` → karta bez tlačítka, badge "Plánováno"
-2. `active` → otevření přihlášek, přidání CTA tlačítka, badge "Otevřeny přihlášky"
-3. `inactive` → uzavření náboru, odebrání CTA tlačítka, badge "Nábor ukončen"
-4. (volitelně) celá karta se může odebrat z HTML, pokud běh již proběhl a nechceme ho zobrazovat
+2. `active` + `badge-open` + CTA → otevření přihlášek
+3. (volitelně) `active` + `badge-closed` + disabled `<span class="btn">` → přihlašování ukončeno, běh ještě neproběhl
+4. `inactive` → uzavření běhu, odebrání CTA tlačítka, badge "Nábor ukončen"
+5. (volitelně) celá karta se může odebrat z HTML, pokud běh již proběhl a nechceme ho zobrazovat
 
 ### Historie změn termínů
 
