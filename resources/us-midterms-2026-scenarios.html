@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>US midterms 2026: a scenario tree to January 2029 | Strategický bootcamp</title>
+<link rel="alternate" hreflang="cs" href="https://strategickybootcamp.cz/resources/us-midterms-2026-scenare">
+<link rel="alternate" hreflang="en" href="https://strategickybootcamp.cz/resources/us-midterms-2026-scenarios">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<script>(function(){var m;try{m=localStorage.getItem('sb-mode');}catch(e){}if(m!=='read')document.documentElement.classList.add('present');})();</script>
+<style>
+:root{
+  --ink:#14171B; --ink2:#4A525C; --line:#DDE4EA; --paper:#FFFFFF; --wash:#F3F7FA;
+  --or:#F49A5F; --or-d:#C86F2C; --bl:#3BA5DD; --bl-d:#1C7CAC;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bar: 56px;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.62 var(--serif);-webkit-text-size-adjust:100%}
+a{color:var(--bl-d)}
+:focus-visible{outline:3px solid var(--bl);outline-offset:2px}
+h1,h2,h3{font-family:var(--sans);letter-spacing:-.015em;line-height:1.15;margin:0}
+p{margin:0 0 1em}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top-in{height:var(--bar);max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:16px;font-family:var(--sans);font-size:14px}
+.brand{display:flex;align-items:center;flex:none;text-decoration:none}
+.brand img{display:block;height:32px;width:auto}
+.spacer{flex:1}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--wash)}
+.seg button,.seg a{font:inherit;font-size:13px;border:0;background:none;padding:5px 12px;border-radius:999px;color:var(--ink2);cursor:pointer;text-decoration:none}
+.seg [aria-pressed="true"],.seg .on{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(20,23,27,.12);font-weight:600}
+.progress{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--or),var(--bl))}
+
+/* slides — základ = režim Čtení (plynulý článek) */
+.slide{padding:48px 20px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.slide:nth-of-type(even){background:var(--wash)}
+/* režim Prezentace: jen obrazovka nad 720 px (na mobilu platí vždy Čtení) */
+@media screen and (min-width:721px){
+  html.present{scroll-snap-type:y proximity}
+  html.present .slide{min-height:calc(100vh - var(--bar));min-height:calc(100svh - var(--bar));padding:72px 20px;scroll-snap-align:start}
+}
+.wrap{max-width:780px;margin:0 auto;width:100%}
+.wide{max-width:1040px}
+.marker{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--or-d);margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.marker::before{content:"";width:28px;height:2px;background:currentColor}
+h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:24px}
+
+/* cover */
+.cover{position:relative;overflow:hidden;background:var(--paper)!important}
+.slide.cover{padding-top:64px;padding-bottom:72px}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(90deg,var(--or) 0 50%,var(--bl) 50% 100%)}
+.cover h1{font-size:clamp(38px,6vw,72px);letter-spacing:-.03em;line-height:1.04;margin:6px 0 28px;max-width:17ch}
+.cover .dek{font-style:italic;font-size:clamp(19px,2.2vw,24px);color:var(--ink2);max-width:36ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:40px;font-family:var(--sans);font-size:14px;color:var(--ink2)}
+.meta span strong{color:var(--ink);font-size:20px;display:block}
+
+/* read rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px 40px}
+.rules h3{font-size:19px;margin-bottom:8px}
+.rules p{font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+
+/* verdict chips */
+.verdict,.chip{font-family:var(--sans);font-size:13.5px;font-weight:600;display:inline-block;padding:5px 12px;border-radius:6px;margin:0;line-height:1.35}
+.v-zlom{background:#FDE8DA;color:#8A4415;border-left:4px solid var(--or-d)}
+.v-kons{background:#DDEFFA;color:#12557A;border-left:4px solid var(--bl-d)}
+.v-mix{background:#ECEFF2;color:#39414A;border-left:4px solid #8A949E}
+.v-fork{background:linear-gradient(90deg,#FDE8DA,#DDEFFA);color:var(--ink);border-left:4px solid var(--or-d)}
+.v-open{background:transparent;color:var(--ink2);border:1px dashed #8A949E}
+
+/* map */
+.map{list-style:none;padding:0;margin:0}
+.map li{border-top:1px solid var(--line);padding:16px 0}
+.map a{display:grid;grid-template-columns:44px 1fr 150px 110px;align-items:center;gap:14px;text-decoration:none;color:var(--ink);font-family:var(--sans)}
+.map .mt{font-weight:600;font-size:17px}
+.map .bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.map .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--or),var(--bl))}
+.map .p{text-align:right;white-space:nowrap;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.map li p{margin:6px 0 0 58px;font-size:16px;color:var(--ink2)}
+.code{font-family:var(--sans);font-weight:700;font-size:14px;color:var(--bl-d);background:#E6F3FB;border-radius:5px;padding:3px 7px;text-align:center}
+
+/* scenario slides */
+.ext{flex:1;margin:0 0 14px;border-left:2px solid var(--line);padding-left:12px}
+.ext h4{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--bl-d);margin:0 0 4px}
+.ext p{margin:0;font-size:15.5px;color:var(--ink2)}
+.scen{align-items:flex-start}
+.layer{font-style:italic;color:var(--ink2);margin-top:-12px}
+.subs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.sub{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px 18px;display:flex;flex-direction:column}
+.slide:nth-of-type(odd) .sub{background:var(--wash);border-color:transparent}
+.sub-h{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.sub-h h3{font-size:18.5px;flex:1}
+.sub-h .p{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--or-d);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sub .lead{font-size:16px}
+
+/* wildcards */
+.wild{list-style:none;padding:0;margin:0 0 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:4px 36px}
+.wild li{border-top:2px solid var(--ink);padding:12px 0 8px}
+.wild h3{font-size:17px;margin-bottom:4px}
+.wild p{font-size:16px}
+.under{background:var(--paper);border-radius:10px;padding:24px 26px;border:1px solid var(--line)}
+.under h3{font-size:19px;margin-bottom:10px}
+.under p{font-size:16.5px;margin:0}
+
+/* summary table */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:620px;font-family:var(--sans);font-size:15px}
+th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--ink2);font-weight:600}
+td.w{font-weight:700;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tnote{font-size:15.5px;color:var(--ink2);margin:14px 0 30px}
+.reads{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.reads h3{font-size:17px;margin-bottom:6px}
+.reads p{font-size:16px}
+
+/* steps */
+.steps{counter-reset:s;list-style:none;padding:0;margin:28px 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:4px 16px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s);grid-row:span 2;font-family:var(--sans);font-weight:800;font-size:28px;color:var(--or)}
+.steps h3{font-size:18px}
+.steps p{margin:4px 0 0;font-size:16.5px}
+.ai{border-left:4px solid var(--bl);padding:4px 0 4px 18px;font-size:16.5px}
+
+/* footer */
+footer{background:var(--ink);color:#D6DCE2;padding:64px 20px calc(40px + env(safe-area-inset-bottom,0px));font-size:16px}
+footer .wrap{max-width:780px}
+footer h2{color:#fff;font-size:28px;margin-bottom:14px}
+footer a{color:#8FCDF0}
+.cta{background:#1E232A;border-radius:12px;padding:26px 28px;margin-bottom:40px;border-top:4px solid var(--or)}
+.cta p{margin:0 0 16px}
+.btn{display:inline-block;background:var(--or);color:var(--ink)!important;font-family:var(--sans);font-weight:700;font-size:15px;text-decoration:none;padding:11px 18px;border-radius:8px}
+.about{font-size:14.5px;color:#A8B1BA;border-top:1px solid #2E353E;padding-top:24px}
+.fnav{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-top:26px;font-family:var(--sans);font-size:14px}
+.fnav .seg{background:#1E232A;border-color:#2E353E}
+.fnav .seg .on{background:#fff;color:var(--ink)}
+.fnav .seg a{color:#A8B1BA}
+.copy{display:flex;align-items:center;gap:10px;margin:22px 0 0;font-family:var(--sans);font-size:13.5px;color:#A8B1BA}
+footer .footer-linkedin{color:#A8B1BA;display:inline-flex}
+footer .footer-linkedin:hover{color:#fff}
+
+@media (max-width:720px){
+  body{font-size:17px}
+  .slide{padding:48px 18px}
+  .map a{grid-template-columns:40px 1fr auto}
+  .map .bar{display:none}
+  .map li p{margin-left:54px}
+  .modes{display:none}
+}
+@media print{.top{position:static}.progress{display:none}.slide{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-in">
+    <a class="brand" href="https://strategickybootcamp.cz/" aria-label="Strategický bootcamp, Analytics Division">
+      <img src="../images/logo-analyticka-divize.png" alt="Strategický bootcamp – Analytics Division" width="84" height="32"></a>
+    <div class="spacer"></div>
+    <div class="seg modes" role="group" aria-label="View mode">
+      <button type="button" data-mode="present" aria-pressed="true">Presentation</button>
+      <button type="button" data-mode="read" aria-pressed="false">Reading</button>
+    </div>
+    <nav class="seg" aria-label="Language">
+      <a href="/resources/us-midterms-2026-scenare" hreflang="cs" lang="cs">CZ</a>
+      <a class="on" href="/resources/us-midterms-2026-scenarios" hreflang="en" aria-current="page">EN</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</div>
+
+<main>
+<section class="slide cover">
+  <div class="wrap">
+    <p class="marker">Inside the Analytics Division: advanced complex predictive models</p>
+    <h1>Midterms 2026: A Scenario Tree for the US Elections</h1>
+    <p class="dek">The midterm elections on 3 November — and what their outcome means all the way to the end of Trump’s term in January 2029.</p>
+    <div class="meta">
+      <span><strong>5</strong>election outcomes</span>
+      <span><strong>27</strong>sub-scenarios</span>
+      <span><strong>22 September 2026</strong>model update</span>
+      <span><strong>5 minutes</strong>scan read, full read 30 min.</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Wondering how it will turn out?</p>
+    <h2>Who will win the US House and Senate? And which realistic sub-scenarios follow?</h2>
+    <p>On Tuesday, 3 November 2026, Americans elect the entire House of Representatives and a third of the Senate. For strategic planning, the interesting question is not who wins by how much. It is what each combination of results does to the rest of Donald Trump’s term: to the Republican Party, to American institutions, to markets — and, by extension, to European business, which is tied to all of it through tariffs, exchange rates and security.</p>
+    <p>This document is a working scenario tree: five main election outcomes, 27 sub-scenarios beneath them, each with an estimated conditional probability, an extrapolation to the end of the term in January 2029, and a verdict on which way the balance of power inside the Republican Party tips.</p>
+    <p>You are receiving it as a participant in the roundtable <em>Strategic Forecasting and Planning Using AI</em> at Transformation Summit 2026 — and it offers a small look behind the scenes of the Strategický bootcamp Analytics Division. There we model strategies against a very broad context, far beyond what a typical company has the bandwidth to track on its own; we combine analyses according to need, budget and agreement. You will not walk away with a forecast. You will see how to think about deep uncertainty in a structured way: conditional probabilities, sub-scenarios and indicators instead of a single number.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">How to read the model in 60 seconds</p>
+    <h2>Four reading rules</h2>
+    <div class="rules">
+      <div><h3>Subjective estimates, not predictions</h3><p>The probabilities are the author’s calibrated personal estimates as of 22 September 2026, not the output of a poll or a statistical model. The goal is not to be right but to be revisable: this is a rolling model, and its first major test is the election result itself.</p></div>
+      <div><h3>Probabilities are conditional</h3><p>The weights of the main scenarios S1–S5 are rough ranges. Sub-scenario weights apply within their parent scenario and sum to roughly 100% there. So “S1b: 25%” does not mean 25% overall; it means 25% given that outcome S1 has occurred.</p></div>
+      <div><h3>Will Trump keep the loyalty of his administration and the Republican Party?</h3><p>That is the model’s central question, and we approach it through the lens of a cascade. Studying the revolutions of 1989, economist Timur Kuran described preference falsification: people publicly support a regime they privately do not believe in, because defection is punished. When the first defectors get away unscathed, the rest discover they are not alone — and support does not erode gradually, it collapses in a leap. Here we apply that framework to Republican elites. The question is not “who wins the election” but “when and how do the elites stop being afraid.” The trigger is usually a <em>common-knowledge event</em>: a moment when everyone knows that everyone knows.</p></div>
+      <div><h3>Every sub-scenario has a verdict</h3>
+        <div class="chips"><span class="chip v-zlom">BREAK</span><span class="chip v-kons">CONSOLIDATION</span><span class="chip v-mix">MIXED</span></div>
+        <p><strong>Break</strong>: the elites break away from Trump. <strong>Consolidation</strong>: the elites close ranks. <strong>Mixed</strong>: creeping, conditional or contradictory trajectories. Calendar anchors: new Congress in January 2027, primaries from January 2028, presidential election in November 2028, end of term on 20 January 2029.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Map of the tree</p>
+    <h2>Five main outcomes and their rough weights</h2>
+    <ul class="map"><li><a href="#s1"><span class="code">S1</span><span class="mt">Democrats win the House, Republicans hold the Senate</span><span class="bar"><i style="width:90%"></i></span><span class="p">~40–50%</span></a><p>Historically the most common outcome: the president’s party loses the House. Divided government and Democratic investigative dominance, but no way to remove Trump from office.</p></li><li><a href="#s2"><span class="code">S2</span><span class="mt">Democrats win both chambers</span><span class="bar"><i style="width:50%"></i></span><span class="p">~20–30%</span></a><p>Full investigative and legislative dominance; the fastest erosion dynamics.</p></li><li><a href="#s3"><span class="code">S3</span><span class="mt">Republicans hold both chambers</span><span class="bar"><i style="width:30%"></i></span><span class="p">~10–20%</span></a><p>The outcome that would legitimize the punishment of defectors — and refute the cascade hypothesis.</p></li><li><a href="#s4"><span class="code">S4</span><span class="mt">Democratic landslide</span><span class="bar"><i style="width:10%"></i></span><span class="p">~5%</span></a><p>A crushing victory. A textbook cascade, playing out live.</p></li><li><a href="#s5"><span class="code">S5</span><span class="mt">Contested results</span><span class="bar"><i style="width:15.0%"></i></span><span class="p">~5–10%</span></a><p>Not a standalone outcome but a layer that can sit on top of S1, S2 or S4.</p></li></ul>
+  </div>
+</section>
+
+<section class="slide scen" id="s1">
+  <div class="wrap wide">
+    <p class="marker">Scenario S1 · weight ~40–50%</p>
+    <h2>Democrats take the House, Republicans hold the Senate</h2>
+    <div class="subs"><article class="sub">
+  <header class="sub-h"><span class="code">S1a</span><h3>“2019 Redux”</h3><span class="p">27%</span></header>
+  <p class="lead">Trump rhetorically reframes the loss of the House — declaring the retained Senate a victory, exactly as in 2018. The House investigates but stops short of impeachment; legislative stalemate sets in, and governing moves to executive orders.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Slow erosion — the courts gradually restore the White House access stripped from media outlets (~2027); Vice President J. D. Vance stays loyal until summer 2027, then cautiously starts building “his own vision.” Trump’s last lever is his endorsements in the 2028 primaries — and that currency is losing value. By January 2029, a “managed twilight”: Trump as a kingmaker with a falling stock price.</p></div>
+  <p class="verdict v-mix">MIXED — a creeping break with no triggering event</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S1b</span><h3>“The Investigation Mill”</h3><span class="p">25%</span></header>
+  <p class="lead">Hakeem Jeffries becomes Speaker, and 2027 is dominated by subpoenas and public hearings; the House forces a vote on releasing the Epstein files, which are sensitive for Trump’s own base.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>True to form, Trump steps up the punishment of defectors — but every lost court battle is public, and a string of defeats works as a chain of common-knowledge events. The first punished defector weathers the penalty around spring 2027 and defection thresholds fall; major donors shift to the 2028 race from autumn 2027; Fox News changes its tone only behind its audience, not ahead of it.</p></div>
+  <p class="verdict v-zlom">BREAK — medium intensity, 2027–28</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S1c</span><h3>“Impeachment #3”</h3><span class="p">12%</span></header>
+  <p class="lead">Triggered by defiance of court rulings or an escalation of the Iran conflict. The House impeaches Trump — for the third time in his career — but the Senate acquits: conviction requires 67 of 100 senators, a threshold that is out of reach.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>A paradoxical effect. The base rallies (impeachment becomes fuel for a grievance narrative heading into 2028), while the elites privately conclude that the president is legally besieged; Vance gains ground as “continuity without chaos.” The hardest environment in the entire tree for reading indicators.</p></div>
+  <p class="verdict v-mix">MIXED</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S1d</span><h3>“Executive Maximalism”</h3><span class="p">20%</span></header>
+  <p class="lead">Governing by decree, impoundment and emergency powers. The institutional apparatus around OMB turns this into the default mode of governing rather than an escape hatch; the Supreme Court becomes the arbiter.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>A fork: (i) the Supreme Court blocks two or three major moves → elite thresholds fall fast, Republican governors distance themselves, a break by the end of 2027; (ii) the Court defers to the executive → consolidation despite the electoral defeat, and the conflict shifts to the states and the financial markets.</p></div>
+  <p class="verdict v-fork">BREAK if the Court blocks / CONSOLIDATION if it defers</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S1e</span><h3>“Narrow Loss and Seat Disputes”</h3><span class="p">10%</span></header>
+  <p class="lead">Margins of one to three seats, contested results, a delayed Speaker vote — a bridge to the dynamics of scenario S5.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Months of uncertainty, markets penalize it, both parties radicalize their narratives; however the dispute ends, the House’s legitimacy stays dented for the whole period.</p></div>
+  <p class="verdict v-mix">MIXED with tail risk</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S1f</span><h3>“Deal-Making Pivot”</h3><span class="p">8%</span></header>
+  <p class="lead">Trump surprises with transactional cooperation: legislative concessions in exchange for quiet on the investigative front. Unlikely given his personality — but the Trump family, with its business interests and concern for his legacy, is the strongest internal lobby for a deal.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>De-escalation on the media front (a quiet restoration of press credentials), “boredom as a strategy”; the base is confused, and Ron DeSantis attacks from the right.</p></div>
+  <p class="verdict v-mix">MIXED — a break by the soft road</p>
+</article></div>
+  </div>
+</section>
+<section class="slide scen" id="s2">
+  <div class="wrap wide">
+    <p class="marker">Scenario S2 · weight ~20–30%</p>
+    <h2>Democrats take both chambers</h2>
+    <div class="subs"><article class="sub">
+  <header class="sub-h"><span class="code">S2a</span><h3>“Subpoena Avalanche and the Bunker”</h3><span class="p">25%</span></header>
+  <p class="lead">Both chambers investigate and the Senate blocks nominations — the government slides into rule by “acting” secretaries, and a cabinet exodus follows during 2027.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The cost of elite conformity jumps — Kuran’s tipping point. Donors defect in the first half of 2027, the Murdoch media empire switches sides, the first senators speak openly; Trump is on the defensive for the entire period, and the 2028 primaries proceed without his veto.</p></div>
+  <p class="verdict v-zlom">BREAK by mid-2027, the base holds</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S2b</span><h3>“Impeachment with Real Teeth”</h3><span class="p">20%</span></header>
+  <p class="lead">Conviction remains unlikely, but after a partial break 10–15 Republican votes in the Senate become conceivable — impeachment stops being a one-off event and becomes a permanent pressure tool.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Trump’s energy goes into defense rather than his agenda; the executive is paralyzed; Vance effectively takes over the day-to-day running of government, and the succession question opens early.</p></div>
+  <p class="verdict v-zlom">BREAK</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S2c</span><h3>“Forced Coexistence”</h3><span class="p">20%</span></header>
+  <p class="lead">Trump makes concessions in exchange for protection of his legacy and family interests; a quiet non-aggression pact with the Democratic leadership takes shape.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The calmest trajectory — media bans are quietly lifted, the punishments stop, the elites gain independence without drama; by January 2029, a normalized lame duck.</p></div>
+  <p class="verdict v-zlom">BREAK without a cascade event — a slow deflation</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S2d</span><h3>“Constitutional Crisis”</h3><span class="p">25%</span></header>
+  <p class="lead">Defiance of subpoenas and court orders, contempt proceedings — and an open question of who actually enforces rulings when the executive refuses to comply.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Markets punish hard (bonds above all), the institutionalist wing of the Republicans around the Senate leader splits off to defend the Senate as an institution, and governors of both parties coordinate. The highest systemic stress outside scenario S5; the outcome depends on the Supreme Court and on the civil service’s willingness to carry out orders.</p></div>
+  <p class="verdict v-zlom">BREAK via chaos, with a risk of lasting damage to the rules of the game</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S2e</span><h3>“An Early Succession War”</h3><span class="p">10%</span></header>
+  <p class="lead">DeSantis and other governors come out openly as early as winter 2026/27; Trump loses the kingmaker role before he has time to punish anyone.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Vance’s dilemma peaks around autumn 2027 — loyalty turns into a liability; the 2028 primaries become a referendum on Trumpism without Trump.</p></div>
+  <p class="verdict v-zlom">BREAK via succession</p>
+</article></div>
+  </div>
+</section>
+<section class="slide scen" id="s3">
+  <div class="wrap wide">
+    <p class="marker">Scenario S3 · weight ~10–20%</p>
+    <h2>Republicans hold both chambers</h2>
+    <div class="subs"><article class="sub">
+  <header class="sub-h"><span class="code">S3a</span><h3>“Narrow Hold = Vindication”</h3><span class="p">40%</span></header>
+  <p class="lead">The election result retroactively blesses the punishment of defectors: escalation on the media front, retribution against those who distanced themselves, the courts as the only brake.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The elites stay fully conformist at least until the 2028 primaries, where quiet positioning only then begins. Consolidation here means more than additional personal power — it means an accelerated rebuild of institutions along the budget and personnel axis. It is also a formal falsification point: if it materializes, the cascade hypothesis must be revised, not rescued.</p></div>
+  <p class="verdict v-kons">CONSOLIDATION — hypothesis must be revised</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S3b</span><h3>“Comfortable Hold”</h3><span class="p">15%</span></header>
+  <p class="lead">Full consolidation; the rebuild of institutions accelerates, and testing constitutional limits (including talk of a third term) becomes a permanent pressure tool.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>A demoralized opposition; the media landscape restructures (capitulations, sales).</p></div>
+  <p class="verdict v-kons">CONSOLIDATION, deep</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S3c</span><h3>“Hold with Surviving Defectors”</h3><span class="p">25%</span></header>
+  <p class="lead">The Republicans hold — but candidates who won by distancing themselves from Trump survive unscathed.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Vindication on the surface; underneath, a quiet precedent that “distancing doesn’t kill” — defection thresholds fall even in victory. The trickiest sub-scenario to read: consolidation headlines over eroding foundations; the break shifts to the 2028 primaries.</p></div>
+  <p class="verdict v-mix">MIXED — the most diagnostically valuable sub-scenario in the entire tree</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S3d</span><h3>“Rally Win”</h3><span class="p">20%</span></header>
+  <p class="lead">A win credited to a last-minute foreign-policy success — for example, ending the Iran conflict.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Trump dominates the 2027 agenda from a position of victory — but the economy still decides. If inflation persists, the cascade is postponed rather than cancelled; a second wave of erosion comes around 2028, amplified by disappointment over “a war won with no dividend.”</p></div>
+  <p class="verdict v-fork">CONSOLIDATION short-term, MIXED through the end of the term</p>
+</article></div>
+  </div>
+</section>
+<section class="slide scen" id="s4">
+  <div class="wrap wide">
+    <p class="marker">Scenario S4 · weight ~5%</p>
+    <h2>Democratic landslide</h2>
+    <div class="subs"><article class="sub">
+  <header class="sub-h"><span class="code">S4a</span><h3>“Instant Lame Duck”</h3><span class="p">40%</span></header>
+  <p class="lead">Elite defections within weeks of the election — a textbook cascade, playing out live.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>DeSantis announces his candidacy in early 2027, and Vance is forced to set out his own vision by the summer; the courts sweep away the media bans, which are already being ignored in practice. At the 2028 nominating convention, Trump is more a tolerated symbol than the head of the party.</p></div>
+  <p class="verdict v-zlom">BREAK, rapid</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S4b</span><h3>“Scorched Earth”</h3><span class="p">30%</span></header>
+  <p class="lead">Trump accuses his own party of betrayal — the 2018 pattern in its extreme form; threats of a third-party run or of sabotaging Republican candidates in 2028.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>A party torn between its base and its elites; the 2028 primaries as a civil war; a possible lasting split of the American right, with effects beyond the horizon of this term. More chaotic for the system than S4a; for Trump personally, the last real lever.</p></div>
+  <p class="verdict v-fork">BREAK among the elites + CONSOLIDATION of the remaining base — a split</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S4c</span><h3>“Health / Personal Wildcard”</h3><span class="p">10%</span></header>
+  <p class="lead">Stepping down for personal reasons — Trump turned eighty in June 2026.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Vance effectively takes over the executive; a managed transition, with the family as custodian of the brand; the cascade plays out quietly and with no one to blame.</p></div>
+  <p class="verdict v-zlom">BREAK without conflict</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S4d</span><h3>“Institutional Pact”</h3><span class="p">20%</span></header>
+  <p class="lead">The Republican Senate minority works with Democrats on safeguards: limits on the president’s war powers, statutory protection for inspectors general, press access guaranteed by law.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>A rare window of bipartisan cooperation in 2027; Trump is legislatively isolated, vetoing bills and being overridden on consensus legislation; the precedent of constraining the executive outlives his term.</p></div>
+  <p class="verdict v-zlom">BREAK, institutionalized — the most durable variant</p>
+</article></div>
+  </div>
+</section>
+<section class="slide scen" id="s5">
+  <div class="wrap wide">
+    <p class="marker">Scenario S5 · weight ~5–10%, conditional on a loss</p>
+    <h2>Contested results</h2><p class="layer">A layer over S1, S2 or S4 — not a standalone election outcome.</p>
+    <div class="subs"><article class="sub">
+  <header class="sub-h"><span class="code">S5a</span><h3>“Rhetorical”</h3><span class="p">45%</span></header>
+  <p class="lead">Claims of fraud, de facto acceptance of the result.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>A stolen-election narrative as mobilizing fuel for 2028; systemically manageable, it merges with the S1/S2 trajectories — only at a higher temperature.</p></div>
+  <p class="verdict v-mix">As in the underlying scenario, with higher polarization</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S5b</span><h3>“Certification Battles”</h3><span class="p">25%</span></header>
+  <p class="lead">Pressure on secretaries of state and the other officials who certify the results.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The 2020 pattern — officials hold, courts rule against; every defeat is a public common-knowledge event, so the pressure campaign paradoxically accelerates the cascade. Governors, Republicans included, gain stature as defenders of the process heading into 2028.</p></div>
+  <p class="verdict v-zlom">BREAK accelerated by failed repression</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S5c</span><h3>“Executive Intervention”</h3><span class="p">15%</span></header>
+  <p class="lead">Executive orders on “election integrity,” Justice Department interventions, talk of federalizing the National Guard.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The Supreme Court is pivotal; the Pentagon enters as an actor in its own right — military doctrine requires refusing an unlawful order — making this the sharpest test of civil–military relations, amplified by the ongoing conflict with Iran. A fork: if the institutions hold, a hard break with legal aftershocks through 2029; if they give way, we leave the space this model is able to describe.</p></div>
+  <p class="verdict v-fork">BREAK at a high price / catastrophic tail</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S5d</span><h3>“Violence and Unrest”</h3><span class="p">10%</span></header>
+  <p class="lead">Decentralized violence around the certification of results.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The elite reaction decides — the pattern after 6 January 2021 (brief condemnation, then back in line) versus lasting defection this time; it depends on casualties and images. Base fatigue over the Epstein affair may dampen the willingness to mobilize compared with 2021.</p></div>
+  <p class="verdict v-open">Undecided — most sensitive to the first week of reactions</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S5e</span><h3>“Successful Reversal of the Result”</h3><span class="p">5%</span></header>
+  <p class="lead">Would require coordination among states, courts and Congress that does not exist.</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>Realistically, prolonged uncertainty into December 2026 rather than an actual reversal; lasting damage to trust in elections for a decade; markets punish hard.</p></div>
+  <p class="verdict v-open">A systemic event outside the model’s frame</p>
+</article><article class="sub">
+  <header class="sub-h"><span class="code">S5f</span><h3>“Election-Day Gray Zone”</h3><span class="p">no weight</span></header>
+  <p class="lead">Intimidation by “threat without an order” — walked-back statements, street incidents — is already partly a reality; the extreme form, visible security operations during early voting, remains unlikely (a signed order would mean personal criminal liability).</p>
+  <div class="ext"><h4>Extrapolation to January 2029</h4><p>The effect lands before the result does — in close districts it marginally shifts the distribution between S1 and S3, while handing Democrats both mobilizing and legal ammunition. Net effect indeterminate.</p></div>
+  <p class="verdict v-open">A modifier of the distribution, not a standalone end state</p>
+</article></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Across the tree</p>
+    <h2>Seven wild cards</h2>
+    <p>Any one of them can rewrite the weights of any sub-scenario.</p>
+    <ul class="wild"><li><h3>Iran</h3><p>An end to the conflict = a rally effect (a shift toward S3d); escalation and casualties = an accelerant of erosion; fuel prices as a direct electoral channel.</p></li><li><h3>The economy</h3><p>Stagflationary inertia underlies every form of erosion; relief — a tariff deal, say — is the only realistic way to turn the mood around.</p></li><li><h3>The Epstein files</h3><p>The only known lever on the base (not on the elites); a forced release of the files changes the parameters of every scenario.</p></li><li><h3>Health</h3><p>A quiet tail across all scenarios (age 80); see S4c.</p></li><li><h3>The Supreme Court</h3><p>Arbiter in S1d, S2d and S5c; its own credibility is also on the line.</p></li><li><h3>Markets and the Fed</h3><p>The bond market as an unelected disciplinarian; high rates shrink the room to “buy voters” through the budget.</p></li><li><h3>Murdoch media</h3><p>The moment Fox News changes its tone can serve as a leading indicator for every break trajectory.</p></li></ul>
+    <div class="under">
+      <h3>And one battle beneath the surface</h3>
+      <p>Across all the post-defeat branches runs an internal struggle between two factions in Trump’s orbit: the anti-establishment camp (the ideological wing around the budget and personnel axis) versus the family (the transactional wing protecting business and legacy). If the anti-establishment camp wins, the tree tilts toward the escalatory paths (S2d); if the family wins, toward the transactional ones (S2c, S1f). What to watch: pre-emptive pardons for the family circle, reinforcement of the ideological axis with personnel after a defeat, and the behavior of family business assets around shocks. A chapter of its own is the ongoing purge of the military command: in the short term it favors the transactional side, in the long term the anti-establishment camp — so military tail risks grow over time and are higher for the 2028 election than for these midterms.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Summary</p>
+    <h2>Where the cards fall</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Verdict to January 2029</th><th>Sub-scenarios</th><th>Rough weighted probability</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip v-zlom">BREAK</span><br>elite defection in various forms</td><td>S1b, S2a–e, S4a–d, S5b, S5c if institutions hold</td><td class="w">~40–50%</td></tr>
+        <tr><td><span class="chip v-kons">CONSOLIDATION</span></td><td>S3a, S3b, S3d short-term, S1d if the Court defers</td><td class="w">~15–20%</td></tr>
+        <tr><td><span class="chip v-mix">MIXED</span><br>creeping, conditional</td><td>S1a, S1c, S1e, S1f, S3c, S5a</td><td class="w">~30–35%</td></tr>
+        <tr><td><span class="chip v-open">Systemic event</span><br>outside the model’s frame</td><td>S5d?, S5e</td><td class="w">~1–3%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="tnote">Once the actor modules are factored in, weight within the Break category shifts from chaotic forms (S2d) to transactional ones (S2c, S1f). Attempts at tail interventions become more likely while their success stays just as unlikely — meaning more damage from the attempts, with the same distribution of end states.</p>
+    <div class="reads">
+      <div><h3>The most likely outcome makes no headlines</h3><p>The most probable path is not a dramatic cascade but a creeping break with no triggering event (the S1a type). Monitoring has to be able to read the erosion nobody writes about.</p></div>
+      <div><h3>S3c is the most valuable</h3><p>It separates the election result from the actual balance of power inside the party.</p></div>
+      <div><h3>A falsification commitment</h3><p>If S3a or S3b materializes, the honest move is to formally revise the cascade hypothesis, not to rescue it. A model that cannot be refuted is not a model.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Open branches</p>
+    <h2>What the model deliberately leaves out</h2>
+    <p>The biggest gap is the succession question. So far only the trajectory of Vice President J. D. Vance has been worked out — yet Secretary of State Marco Rubio is a real alternative too, and in a fringe scenario even an attempt at a third Trump candidacy cannot be ruled out; with no real constitutional path, it works more as a permanent bargaining chip than as a viable option. The succession branches will be developed on a rolling basis — the model is designed to roll forward, with a revision after each test point. The next one is 3 November.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Inspiration</p>
+    <h2>Try building your own scenario tree</h2>
+    <p>This is not a how-to guide — a full model of this kind takes time, a broad input base and the discipline of regular revisions. But the skeleton of the process is transferable, and even a simplified version — for entering a new market, company succession or industry regulation — will organize your thinking better than a single number in a spreadsheet.</p>
+    <ol class="steps">
+      <li><h3>Question and horizon</h3><p>Not “what will happen,” but “what will each resolution do to our decision X.” Add calendar anchors — the dates when the uncertainty breaks.</p></li>
+      <li><h3>Main branches</h3><p>3–6 mutually exclusive outcomes of the key uncertainty, with rough weights. More branches mean less thinking per branch.</p></li>
+      <li><h3>Sub-scenarios with conditional weights</h3><p>Within each branch, play out variants that sum to 100%. This is where the value is created: it forces you to say out loud what distinguishes the variants.</p></li>
+      <li><h3>Verdicts and indicators</h3><p>Choose 2–4 categories of resolution that fit your own question, and give each branch leading indicators — what you will see before it makes the news.</p></li>
+      <li><h3>Falsification commitment and revision rhythm</h3><p>Write down in advance which outcome would refute your hypothesis, and the date of the next revision. A rolling model with a revision trail is worth more than a precise one-off forecast.</p></li>
+    </ol>
+    <p class="ai"><strong>The role of AI in this document.</strong> The model was built in an “AI as sparring partner, not oracle” mode: generating and stress-testing sub-scenarios, extrapolating to the end of the term, checking the consistency of conditional weights, and feeding new information into the existing tree. The probability estimates, the choice of framework and the falsification commitments are human — which is exactly why they can be defended, revised and, one day, evaluated.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Want something similar for your company?</h2>
+      <p>Alongside scenario trees, we also build the <strong>Strategic Directions Atlas</strong> — a map of a company’s strategic directions with the conditions for success, leading indicators and exit criteria for each direction. Send me a message and let’s talk about how it could help you.</p>
+      <a class="btn" href="https://www.linkedin.com/in/miravlach/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+    </div>
+    <div class="about">
+      <p><strong>About this document.</strong> A subjective model sketch prepared for the roundtable <em>Strategic Forecasting and Planning Using AI</em> (Transformation Summit 2026, Prague, 24 September). Model status: 22 September 2026; maintained as a rolling model and revised after key events. The roundtable discussion was held under the Chatham House Rule. This is not a prediction and does not constitute investment, legal or any other advice. Internal working document of the Strategický bootcamp Analytics Division — for participants only; please do not share publicly.</p>
+      <p>Author: Mira Vlach</p>
+    </div>
+    <nav class="fnav" aria-label="Links">
+      <a href="https://strategickybootcamp.cz/">Back to strategickybootcamp.cz</a>
+      <a href="https://strategickybootcamp.cz/thinktank">Thinktank</a>
+      <span class="spacer"></span>
+      <span class="seg"><a href="/resources/us-midterms-2026-scenare" hreflang="cs" lang="cs">CZ</a><a class="on" href="/resources/us-midterms-2026-scenarios" hreflang="en" aria-current="page">EN</a></span>
+    </nav>
+    <p class="copy">© 2026 Strategický bootcamp
+      <a href="https://www.linkedin.com/company/strategicky-bootcamp/" target="_blank" rel="noopener" class="footer-linkedin" aria-label="Strategický bootcamp on LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, head=document.querySelector('.top'), bar=document.querySelector('.progress');
+  var mobile=matchMedia('(max-width:720px)'), still=matchMedia('(prefers-reduced-motion: reduce)');
+  var stops=[].slice.call(document.querySelectorAll('main .slide, footer'));
+  var btns=[].slice.call(document.querySelectorAll('[data-mode]'));
+
+  function presenting(){return root.classList.contains('present')&&!mobile.matches;}
+  function barH(){return head.offsetHeight;}
+  function maxY(){return root.scrollHeight-innerHeight;}
+  function docTop(el){return el.getBoundingClientRect().top+scrollY;}
+  function clampY(y){return Math.max(0,Math.min(maxY(),Math.round(y)));}
+  /* scroll pozice, kdy začátek slajdu sedí pod lištou */
+  function tops(){var b=barH();return stops.map(function(s){return clampY(docTop(s)-b);});}
+  function current(t,y){var i=0;for(var k=0;k<t.length;k++){if(t[k]<=y+2)i=k;}return i;}
+
+  /* Klávesy: další / předchozí slajd. Slajd vyšší než okno se nejdřív doroluje po stránkách. */
+  var pending=null, pendingT;
+  function go(d){
+    var t=tops(), y=pending!==null?pending:scrollY, vh=innerHeight-barH(), i=current(t,y), dest;
+    if(d>0){
+      var content=stops[i].querySelector('.wrap')||stops[i];
+      var endY=clampY(docTop(content)+content.offsetHeight+32-innerHeight);
+      var nextY=i+1<t.length?t[i+1]:maxY();
+      dest=y<endY-2?Math.min(y+vh*.9,endY):nextY;
+    }else{
+      dest=y>t[i]+2?Math.max(y-vh*.9,t[i]):(i>0?t[i-1]:0);
+    }
+    dest=clampY(dest);
+    if(Math.abs(dest-y)<1)return;
+    pending=dest;clearTimeout(pendingT);pendingT=setTimeout(function(){pending=null;},still.matches?50:900);
+    scrollTo({top:dest,behavior:still.matches?'auto':'smooth'});
+  }
+  addEventListener('keydown',function(e){
+    if(!presenting()||e.defaultPrevented||e.altKey||e.ctrlKey||e.metaKey)return;
+    var el=e.target, tag=el&&el.tagName||'', k=e.key, d=0;
+    if(/^(INPUT|TEXTAREA|SELECT)$/.test(tag)||el.isContentEditable)return;
+    if(k==='ArrowDown'||k==='PageDown')d=1;
+    else if(k==='ArrowUp'||k==='PageUp')d=-1;
+    else if(k===' '||k==='Spacebar'){if(/^(BUTTON|A|SUMMARY)$/.test(tag))return;d=e.shiftKey?-1:1;}
+    if(!d)return;
+    e.preventDefault();go(d);
+  });
+
+  /* Přepínač režimů; při přepnutí drží čtenáře na stejném místě textu */
+  function apply(mode,keep){
+    var p=mode!=='read', anchor=null, ratio=0;
+    if(keep){var i=current(tops(),scrollY);anchor=stops[i];ratio=(scrollY+barH()-docTop(anchor))/(anchor.offsetHeight||1);}
+    root.classList.toggle('present',p);
+    btns.forEach(function(x){x.setAttribute('aria-pressed',String((x.dataset.mode==='present')===p));});
+    if(anchor){
+      root.style.scrollBehavior='auto';
+      scrollTo(0,clampY(docTop(anchor)-barH()+Math.max(0,ratio)*anchor.offsetHeight));
+      root.style.scrollBehavior='';
+    }
+    upd();
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      apply(b.dataset.mode,true);
+      try{localStorage.setItem('sb-mode',b.dataset.mode);}catch(e){}
+    });
+  });
+
+  function upd(){var h=maxY();bar.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%';}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+  apply(root.classList.contains('present')?'present':'read',false);
+})();
+</script>
+</body>
+</html>
