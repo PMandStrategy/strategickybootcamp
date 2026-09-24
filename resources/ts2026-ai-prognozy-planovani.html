@@ -40,8 +40,7 @@ p{margin:0 0 1em}
 /* cover */
 .cover{position:relative;padding:64px 20px 72px}
 .cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(90deg,var(--or) 0 50%,var(--bl) 50% 100%)}
-.cover h1{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.03em;line-height:1.06;margin:6px 0 28px;max-width:18ch}
-.cover .dek{font-size:clamp(18px,2vw,21px);color:var(--ink2);max-width:40ch;margin:0}
+.cover h1{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.03em;line-height:1.06;margin:6px 0 0;max-width:18ch}
 
 /* topics */
 .topics{background:var(--wash);padding:56px 20px 64px}
@@ -51,6 +50,11 @@ p{margin:0 0 1em}
 .card .l{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--bl-d);background:#E6F3FB;border-radius:6px;min-width:30px;padding:3px 8px;text-align:center}
 .card h3{font-size:19px;line-height:1.3}
 .card p{grid-column:2;margin:4px 0 0;font-style:italic;color:var(--ink2);font-size:17px}
+.card .sub{grid-column:2;list-style:none;margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid var(--line);font-size:15.5px;line-height:1.55;color:#5E6770}
+.card .sub li+li{margin-top:6px}
+.case{margin:28px 0 0;background:#FDF1E8;border-left:4px solid var(--or-d);border-radius:12px;padding:22px 26px 24px}
+.case h3{font-size:19px;margin-bottom:10px}
+.case p{margin:0;font-size:17.5px}
 .more{margin:36px 0 0;font-family:var(--sans);font-size:14.5px;color:var(--ink2)}
 .more a{text-decoration:none;border-bottom:1px solid currentColor}
 
@@ -76,6 +80,8 @@ footer .footer-linkedin:hover{color:#fff}
   .card{padding:18px 18px;gap:6px 12px}
   .card h3{font-size:18px}
   .card p{grid-column:1 / -1;font-size:16.5px}
+  .card .sub{grid-column:1 / -1;font-size:15px}
+  .case{padding:20px 18px 22px}
   .footer-logo{width:200px}
 }
 @media print{.top{position:static}}
@@ -100,7 +106,6 @@ footer .footer-linkedin:hover{color:#fff}
   <div class="wrap">
     <p class="marker">Kulatý stůl · Transformation Summit 2026</p>
     <h1>Strategické prognózy a plánování s využitím AI</h1>
-    <p class="dek">AI dnes připraví plán nebo prognózu za pár minut. Zajímavější je, jestli s ní rozhodujeme lépe. Tady je pár okruhů, kam může rozhovor zajít. Kam doopravdy půjde, ukáže až stůl.</p>
   </div>
 </section>
 
@@ -109,13 +114,24 @@ footer .footer-linkedin:hover{color:#fff}
     <h2>Okruhy k diskusi</h2>
     <ol class="cards">
       <li class="card"><span class="l">A</span><h3>Realita: kde AI v plánování opravdu pomáhá</h3>
-        <p>Vzpomeňte si na poslední plánovací cyklus – rozpočet, strategii, roadmapu. Ve kterém konkrétním kroku vám AI ušetřila čas nebo změnila výsledek?</p></li>
+        <p>Vzpomeňte si na poslední plánovací cyklus – rozpočet, strategii, roadmapu. Ve kterém konkrétním kroku vám AI ušetřila čas nebo změnila výsledek?</p>
+        <ul class="sub">
+          <li>Co všechno jde s AI plánovat – stress-test, scénáře, sektorové trendy, plánování výroby a kapacit, optimalizace... ?</li>
+          <li>A čím – deep research, NotebookLM, modely Anthropic, OpenAI, Gemini? A posun od chatu ke Code/Codex?</li>
+        </ul></li>
       <li class="card"><span class="l">B</span><h3>Kvalita prognóz: jak poznat, že AI i člověk předpovídá dobře</h3>
-        <p>Kdo z vás zpětně měří, jak přesné byly vaše loňské prognózy?</p></li>
+        <p>Kdo z vás zpětně měří, jak přesné byly vaše loňské prognózy?</p>
+        <ul class="sub">
+          <li>Kvalitní i nekvalitní AI analýza vypadají podobně přesvědčivě. Jak je rozeznáte?</li>
+          <li>Lidé si často dělají úsudek o AI na základě série vlastních pokusů, často mylně. Setkali jste se s tím?</li>
+        </ul></li>
       <li class="card"><span class="l">C</span><h3>Scénáře a strategické myšlení: AI jako sparring partner a red team</h3>
         <p>Kdy naposledy vám někdo – člověk nebo AI – rozbil plán dřív, než ho rozbila realita?</p></li>
       <li class="card"><span class="l">D</span><h3>Data, kontext a důvěrnost</h3>
-        <p>Co byste do AI nikdy nevložili – a jak víte, že to tam už nevkládá někdo z vašich lidí?</p></li>
+        <p>Co byste do AI nikdy nevložili – a jak víte, že to tam už nevkládá někdo z vašich lidí?</p>
+        <ul class="sub">
+          <li>Pro pokročilé: otrávený kontext, token management. Kdy vám model „ztratil nit“?</li>
+        </ul></li>
       <li class="card"><span class="l">E</span><h3>Rozhodování a odpovědnost</h3>
         <p>Když rozhodnutí postavené na AI prognóze nevyjde – kdo za to nese odpovědnost a jak to vysvětlí vedení?</p></li>
       <li class="card"><span class="l">F</span><h3>Od prognózy k exekuci: plánování v rychlosti</h3>
@@ -123,6 +139,10 @@ footer .footer-linkedin:hover{color:#fff}
       <li class="card"><span class="l">G</span><h3>Lidé, kompetence a první kroky</h3>
         <p>Kdo by u vás měl AI v plánování „vlastnit“ – finance, strategie, PMO, IT, nebo každý sám?</p></li>
     </ol>
+    <aside class="case" aria-labelledby="case-h">
+      <h3 id="case-h">Modelový příklad</h3>
+      <p>Máte grafické studio se 7 spolupracovníky a teď jste v oboru, který v některých proudech eroduje pod vlivem AI. Trajektorie není dobrá, poptávek ubývá. Co uděláte? Jak použijete AI pro rozhodování?</p>
+    </aside>
     <p class="more">Ukázka z analytické divize: <a href="/resources/us-midterms-2026-scenare">scénářový strom k US midterms 2026&nbsp;→</a></p>
   </div>
 </section>

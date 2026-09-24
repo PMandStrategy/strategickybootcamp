@@ -40,8 +40,7 @@ p{margin:0 0 1em}
 /* cover */
 .cover{position:relative;padding:64px 20px 72px}
 .cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(90deg,var(--or) 0 50%,var(--bl) 50% 100%)}
-.cover h1{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.03em;line-height:1.06;margin:6px 0 28px;max-width:18ch}
-.cover .dek{font-size:clamp(18px,2vw,21px);color:var(--ink2);max-width:40ch;margin:0}
+.cover h1{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.03em;line-height:1.06;margin:6px 0 0;max-width:18ch}
 
 /* topics */
 .topics{background:var(--wash);padding:56px 20px 64px}
@@ -51,6 +50,11 @@ p{margin:0 0 1em}
 .card .l{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--bl-d);background:#E6F3FB;border-radius:6px;min-width:30px;padding:3px 8px;text-align:center}
 .card h3{font-size:19px;line-height:1.3}
 .card p{grid-column:2;margin:4px 0 0;font-style:italic;color:var(--ink2);font-size:17px}
+.card .sub{grid-column:2;list-style:none;margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid var(--line);font-size:15.5px;line-height:1.55;color:#5E6770}
+.card .sub li+li{margin-top:6px}
+.case{margin:28px 0 0;background:#FDF1E8;border-left:4px solid var(--or-d);border-radius:12px;padding:22px 26px 24px}
+.case h3{font-size:19px;margin-bottom:10px}
+.case p{margin:0;font-size:17.5px}
 .more{margin:36px 0 0;font-family:var(--sans);font-size:14.5px;color:var(--ink2)}
 .more a{text-decoration:none;border-bottom:1px solid currentColor}
 
@@ -76,6 +80,8 @@ footer .footer-linkedin:hover{color:#fff}
   .card{padding:18px 18px;gap:6px 12px}
   .card h3{font-size:18px}
   .card p{grid-column:1 / -1;font-size:16.5px}
+  .card .sub{grid-column:1 / -1;font-size:15px}
+  .case{padding:20px 18px 22px}
   .footer-logo{width:200px}
 }
 @media print{.top{position:static}}
@@ -100,7 +106,6 @@ footer .footer-linkedin:hover{color:#fff}
   <div class="wrap">
     <p class="marker">Roundtable · Transformation Summit 2026</p>
     <h1>Strategic Forecasting and Planning Using AI</h1>
-    <p class="dek">AI can now produce a plan or a forecast in a few minutes. The more interesting question is whether it helps us make better decisions. Here are a few areas the conversation might explore. Where it actually goes is up to the table.</p>
   </div>
 </section>
 
@@ -109,13 +114,24 @@ footer .footer-linkedin:hover{color:#fff}
     <h2>Topics for discussion</h2>
     <ol class="cards">
       <li class="card"><span class="l">A</span><h3>Reality: where AI genuinely helps in planning</h3>
-        <p>Think back to your last planning cycle – budget, strategy, roadmap. At which specific step did AI save you time or change the outcome?</p></li>
+        <p>Think back to your last planning cycle – budget, strategy, roadmap. At which specific step did AI save you time or change the outcome?</p>
+        <ul class="sub">
+          <li>What else can you plan with AI – stress tests, scenarios, sector trends, production and capacity planning, optimization... ?</li>
+          <li>And with what – deep research, NotebookLM, Anthropic and OpenAI models, Gemini? And the shift from chat to Code/Codex?</li>
+        </ul></li>
       <li class="card"><span class="l">B</span><h3>Forecast quality: how to tell whether AI and people forecast well</h3>
-        <p>Which of you looks back and measures how accurate last year’s forecasts were?</p></li>
+        <p>Which of you looks back and measures how accurate last year’s forecasts were?</p>
+        <ul class="sub">
+          <li>High-quality and poor AI analyses look similarly convincing. How do you tell them apart?</li>
+          <li>People often judge AI based on a series of their own attempts – often wrongly. Have you come across this?</li>
+        </ul></li>
       <li class="card"><span class="l">C</span><h3>Scenarios and strategic thinking: AI as sparring partner and red team</h3>
         <p>When did someone – a person or AI – last break your plan before reality did?</p></li>
       <li class="card"><span class="l">D</span><h3>Data, context and confidentiality</h3>
-        <p>What would you never put into AI – and how do you know someone on your team isn’t already doing it?</p></li>
+        <p>What would you never put into AI – and how do you know someone on your team isn’t already doing it?</p>
+        <ul class="sub">
+          <li>For advanced users: context poisoning, token management. When did a model "lose the thread" for you?</li>
+        </ul></li>
       <li class="card"><span class="l">E</span><h3>Decision-making and accountability</h3>
         <p>When a decision built on an AI forecast doesn’t work out – who is accountable, and how do they explain it to leadership?</p></li>
       <li class="card"><span class="l">F</span><h3>From forecast to execution: planning at speed</h3>
@@ -123,6 +139,10 @@ footer .footer-linkedin:hover{color:#fff}
       <li class="card"><span class="l">G</span><h3>People, skills and first steps</h3>
         <p>Who in your organisation should “own” AI in planning – finance, strategy, the PMO, IT, or everyone for themselves?</p></li>
     </ol>
+    <aside class="case" aria-labelledby="case-h">
+      <h3 id="case-h">Case study</h3>
+      <p>You run a design studio with 7 people, in a field that is eroding under the influence of AI in some segments. The trajectory isn't good – demand is falling. What do you do? How do you use AI to make the decision?</p>
+    </aside>
     <p class="more">From the Analytics Division: <a href="/resources/us-midterms-2026-scenarios">a scenario tree for the US midterms 2026&nbsp;→</a></p>
   </div>
 </section>
