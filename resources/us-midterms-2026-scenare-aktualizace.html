@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Americké midterms 2026: scénáře a dopady do ledna 2029 — aktualizace 10/2026 | Strategický bootcamp</title>
+<meta name="description" content="Aktualizovaný scénářový model amerických midterms 2026: váhy podle modelů a trhů, dopady na cla, dolar, bezpečnost a firmy ve střední Evropě, klíč pro čtení volební noci. Stav k 9. 10. 2026.">
+<link rel="canonical" href="https://strategickybootcamp.cz/resources/us-midterms-2026-scenare-aktualizace">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:site_name" content="Strategický bootcamp">
+<meta property="og:title" content="Americké midterms 2026: scénáře a dopady do ledna 2029 (aktualizace 9. 10. 2026)">
+<meta property="og:description" content="Aktualizovaný scénářový model amerických midterms 2026: váhy podle modelů a trhů, dopady na cla, dolar, bezpečnost a firmy ve střední Evropě, klíč pro čtení volební noci. Stav k 9. 10. 2026.">
+<meta property="og:url" content="https://strategickybootcamp.cz/resources/us-midterms-2026-scenare-aktualizace">
+<meta property="og:image" content="https://strategickybootcamp.cz/images/og-thinktank.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-09">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<script>(function(){var m;try{m=localStorage.getItem('sb-mode');}catch(e){}if(m!=='read')document.documentElement.classList.add('present');})();</script>
+<style>
+:root{
+  --ink:#14171B; --ink2:#4A525C; --line:#DDE4EA; --paper:#FFFFFF; --wash:#F3F7FA;
+  --or:#F49A5F; --or-d:#C86F2C; --bl:#3BA5DD; --bl-d:#1C7CAC;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bar: 68px;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.62 var(--serif);-webkit-text-size-adjust:100%}
+a{color:var(--bl-d)}
+:focus-visible{outline:3px solid var(--bl);outline-offset:2px}
+h1,h2,h3{font-family:var(--sans);letter-spacing:-.015em;line-height:1.15;margin:0}
+p{margin:0 0 1em}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top-in{height:var(--bar);max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:16px;font-family:var(--sans);font-size:14px}
+.brand{display:flex;align-items:center;flex:none;text-decoration:none}
+.brand img{display:block;height:48px;width:auto}
+.spacer{flex:1}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--wash)}
+.seg button,.seg a{font:inherit;font-size:13px;border:0;background:none;padding:5px 12px;border-radius:999px;color:var(--ink2);cursor:pointer;text-decoration:none}
+.seg [aria-pressed="true"],.seg .on{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(20,23,27,.12);font-weight:600}
+.progress{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--or),var(--bl))}
+
+/* slides — základ = režim Čtení (plynulý článek) */
+.slide{padding:48px 20px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.slide:nth-of-type(even){background:var(--wash)}
+/* režim Prezentace: jen obrazovka nad 720 px (na mobilu platí vždy Čtení) */
+@media screen and (min-width:721px){
+  html.present{scroll-snap-type:y proximity}
+  html.present .slide{min-height:calc(100vh - var(--bar));min-height:calc(100svh - var(--bar));padding:72px 20px;scroll-snap-align:start}
+}
+.wrap{max-width:780px;margin:0 auto;width:100%}
+.wide{max-width:1040px}
+.marker{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--or-d);margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.marker::before{content:"";width:28px;height:2px;background:currentColor}
+h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:24px}
+
+/* cover */
+.cover{position:relative;overflow:hidden;background:var(--paper)!important}
+.slide.cover{padding-top:64px;padding-bottom:72px}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(90deg,var(--or) 0 50%,var(--bl) 50% 100%)}
+.cover h1{font-size:clamp(38px,6vw,72px);letter-spacing:-.03em;line-height:1.04;margin:6px 0 28px;max-width:17ch}
+.cover .dek{font-style:italic;font-size:clamp(19px,2.2vw,24px);color:var(--ink2);max-width:36ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:40px;font-family:var(--sans);font-size:14px;color:var(--ink2)}
+.meta span strong{color:var(--ink);font-size:20px;display:block}
+
+/* read rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px 40px}
+.rules h3{font-size:19px;margin-bottom:8px}
+.rules p{font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+
+/* verdict chips */
+.verdict,.chip{font-family:var(--sans);font-size:13.5px;font-weight:600;display:inline-block;padding:5px 12px;border-radius:6px;margin:0;line-height:1.35}
+.v-zlom{background:#FDE8DA;color:#8A4415;border-left:4px solid var(--or-d)}
+.v-kons{background:#DDEFFA;color:#12557A;border-left:4px solid var(--bl-d)}
+.v-mix{background:#ECEFF2;color:#39414A;border-left:4px solid #8A949E}
+.v-fork{background:linear-gradient(90deg,#FDE8DA,#DDEFFA);color:var(--ink);border-left:4px solid var(--or-d)}
+.v-open{background:transparent;color:var(--ink2);border:1px dashed #8A949E}
+
+/* map */
+.map{list-style:none;padding:0;margin:0}
+.map li{border-top:1px solid var(--line);padding:16px 0}
+.map a{display:grid;grid-template-columns:44px 1fr 150px 110px;align-items:center;gap:14px;text-decoration:none;color:var(--ink);font-family:var(--sans)}
+.map .mt{font-weight:600;font-size:17px}
+.map .bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.map .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--or),var(--bl))}
+.map .p{text-align:right;white-space:nowrap;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.map li p{margin:6px 0 0 58px;font-size:16px;color:var(--ink2)}
+.code{font-family:var(--sans);font-weight:700;font-size:14px;color:var(--bl-d);background:#E6F3FB;border-radius:5px;padding:3px 7px;text-align:center}
+
+/* scenario slides */
+.ext{flex:1;margin:0 0 14px;border-left:2px solid var(--line);padding-left:12px}
+.ext h4{font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--bl-d);margin:0 0 4px}
+.ext p{margin:0;font-size:15.5px;color:var(--ink2)}
+.scen{align-items:flex-start}
+.layer{font-style:italic;color:var(--ink2);margin-top:-12px}
+.subs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.sub{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px 18px;display:flex;flex-direction:column}
+.slide:nth-of-type(odd) .sub{background:var(--wash);border-color:transparent}
+.sub-h{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.sub-h h3{font-size:18.5px;flex:1}
+.sub-h .p{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--or-d);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sub .lead{font-size:16px}
+
+/* wildcards */
+.wild{list-style:none;padding:0;margin:0 0 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:4px 36px}
+.wild li{border-top:2px solid var(--ink);padding:12px 0 8px}
+.wild h3{font-size:17px;margin-bottom:4px}
+.wild p{font-size:16px}
+.under{background:var(--paper);border-radius:10px;padding:24px 26px;border:1px solid var(--line)}
+.under h3{font-size:19px;margin-bottom:10px}
+.under p{font-size:16.5px;margin:0}
+
+/* summary table */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:620px;font-family:var(--sans);font-size:15px}
+th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--ink2);font-weight:600}
+td.w{font-weight:700;font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tnote{font-size:15.5px;color:var(--ink2);margin:14px 0 30px}
+.reads{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.reads h3{font-size:17px;margin-bottom:6px}
+.reads p{font-size:16px}
+
+/* steps */
+.steps{counter-reset:s;list-style:none;padding:0;margin:28px 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:4px 16px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s);grid-row:span 2;font-family:var(--sans);font-weight:800;font-size:28px;color:var(--or)}
+.steps h3{font-size:18px}
+.steps p{margin:4px 0 0;font-size:16.5px}
+.ai{border-left:4px solid var(--bl);padding:4px 0 4px 18px;font-size:16.5px}
+
+/* footer */
+footer{background:var(--ink);color:#D6DCE2;padding:64px 20px calc(40px + env(safe-area-inset-bottom,0px));font-size:16px}
+footer .wrap{max-width:780px}
+footer h2{color:#fff;font-size:28px;margin-bottom:14px}
+footer a{color:#8FCDF0}
+.cta{background:#1E232A;border-radius:12px;padding:26px 28px;margin-bottom:40px;border-top:4px solid var(--or)}
+.cta p{margin:0 0 16px}
+.btn{display:inline-block;background:var(--or);color:var(--ink)!important;font-family:var(--sans);font-weight:700;font-size:15px;text-decoration:none;padding:11px 18px;border-radius:8px}
+.about{font-size:14.5px;color:#A8B1BA;border-top:1px solid #2E353E;padding-top:24px}
+.fnav{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-top:26px;font-family:var(--sans);font-size:14px}
+.fnav .seg{background:#1E232A;border-color:#2E353E}
+.fnav .seg .on{background:#fff;color:var(--ink)}
+.fnav .seg a{color:#A8B1BA}
+.footer-logo{display:block;width:240px;max-width:70%;height:auto;margin:40px 0 0}
+.copy{display:flex;align-items:center;gap:10px;margin:22px 0 0;font-family:var(--sans);font-size:13.5px;color:#A8B1BA}
+footer .footer-linkedin{color:#A8B1BA;display:inline-flex}
+footer .footer-linkedin:hover{color:#fff}
+
+@media (max-width:720px){
+  :root{--bar:60px}
+  body{font-size:17px}
+  .brand img{height:40px}
+  .footer-logo{width:200px}
+  .slide{padding:48px 18px}
+  .map a{grid-template-columns:40px 1fr auto}
+  .map .bar{display:none}
+  .map li p{margin-left:54px}
+  .modes{display:none}
+}
+@media print{.top{position:static}.progress{display:none}.slide{page-break-inside:avoid}}
+</style>
+<style>
+/* doplňky této stránky */
+.cover .stav{font-size:clamp(16.5px,1.8vw,20px);line-height:1.5;color:var(--ink2);max-width:62ch;margin:0}
+.scen-h{font-family:var(--sans);letter-spacing:-.015em;line-height:1.15;font-size:clamp(26px,3.4vw,38px);margin:0 0 20px}
+.sub-h h4{font-family:var(--sans);font-size:18.5px;font-weight:700;letter-spacing:-.015em;line-height:1.15;margin:0;flex:1}
+.news{list-style:none;padding:0;margin:0}
+.news li{border-top:1px solid var(--line);padding:14px 0;font-size:16.5px}
+.steps-ol{margin:0 0 22px;padding-left:24px}
+.steps-ol li{margin-bottom:12px;font-size:16.5px}
+.block{margin-bottom:26px}
+.block:last-child{margin-bottom:0}
+table.t-wide{min-width:820px}
+.prev{font-family:var(--sans);font-size:15px;color:var(--ink2);margin:30px 0 0;padding-top:20px;border-top:1px solid var(--line)}
+.sign{font-style:italic;color:var(--ink2);margin:22px 0 0}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-in">
+    <a class="brand" href="https://strategickybootcamp.cz/" aria-label="Strategický bootcamp, analytická divize">
+      <img src="../images/logo-analyticka-divize.png" alt="Strategický bootcamp – Analytická divize" width="127" height="48"></a>
+    <div class="spacer"></div>
+    <div class="seg modes" role="group" aria-label="Režim zobrazení">
+      <button type="button" data-mode="present" aria-pressed="true">Prezentace</button>
+      <button type="button" data-mode="read" aria-pressed="false">Čtení</button>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</div>
+
+<main>
+<section class="slide cover">
+  <div class="wrap">
+    <p class="marker">Analytická divize Strategického bootcampu</p>
+    <h1>Americké midterms 2026: scénáře a dopady do ledna 2029 (aktualizace 9. 10. 2026)</h1>
+    <p class="stav"><strong>Stav:</strong> 9. 10. 2026, 25 dní před volbami (3. 11. 2026). Nahrazuje verzi z 22. 9. 2026. Jde o subjektivní model, ne predikci; váhy jsou revidovatelné, zmrazí se 2. 11. a po certifikaci výsledků budou skórovány.</p>
+    <div class="meta">
+      <span><strong>4</strong>hlavní scénáře</span>
+      <span><strong>18</strong>podscénářů</span>
+      <span><strong>3. 11. 2026</strong>volby</span>
+      <span><strong>9. 10. 2026</strong>stav modelu</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Aktualizace</p>
+    <h2>Co je nového od 22. 9.</h2>
+    <ul class="news">
+      <li><strong>Váhy hlavních scénářů přepsány</strong> podle aktuálního stavu modelů a predikčních trhů. Nejpravděpodobnějším výsledkem už není „demokraté berou jen Sněmovnu“, ale „demokraté berou obě komory“.</li>
+      <li><strong>Přidána vrstva dopadů.</strong> Ke každému hlavnímu scénáři kanály cla a obchod, dolar a sazby, bezpečnost, regulace — a co z toho plyne pro firmu ve střední Evropě. V původní verzi to chybělo, přestože to byl deklarovaný účel.</li>
+      <li><strong>Přidáno:</strong> co volby nezmění (mechanika exekutivy), lame-duck Kongres do ledna, 36 guvernérských voleb, klíč pro čtení volební noci, citlivost na divoké karty, srovnání 2018 × 2026.</li>
+      <li><strong>Zjednodušeno:</strong> 27 → 18 podscénářů; zpochybnění výsledků (S5) jako modifikátor, ne samostatný scénář. Otázka, jak rychle se republikánské elity přestanou chovat konformně, zůstává jedním z jader analýzy, ale není jejím hlavním výstupem.</li>
+      <li><strong>Opraveny nekonzistence</strong> původní verze: součty vah, překryv „obě komory“ × „landslide“ bez prahu, chybějící kombinace výsledků.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Vstupy</p>
+    <h2>1. Stav ke 9. 10. 2026</h2>
+    <div class="tbl"><table class="t-wide">
+      <thead><tr><th>Oblast</th><th>Stav</th><th>Co to dělá s modelem</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Modely a trhy</strong></td><td>Decision Desk HQ (7. 10.): Sněmovna D 76 %, Senát D 57 %; společné výsledky D–D 54 %, R Senát + D Sněmovna 22 %, R–R 22 %, D Senát + R Sněmovna 2 %. Polymarket (8. 10.): Sněmovna D 91 %, Senát D 64 %, D sweep 64 %, R sweep 9 %. Generic ballot D +7 až +8. Poliwave: Sněmovna 223–212, Senát 51–49 (D zisk Ohio, Maine, Aljaška).</td><td>Demokratický sweep je modální; „jen Sněmovna“ klesá; republikánské udržení drží díky senátní mapě.</td></tr>
+        <tr><td><strong>Senátní mapa</strong></td><td>Demokraté potřebují čistý zisk +4 (při 50:50 rozhoduje Vance). Klíčové státy: Ohio, Maine, Aljaška, Severní Karolína, Iowa, Texas, Michigan.</td><td>51 D = S2; 50 D = S1. Rozdíl mezi dvěma hlavními scénáři může ležet v jednom státě.</td></tr>
+        <tr><td><strong>Okrsky</strong></td><td>Mezidekádní překreslování v několika státech obou stran je v modelech započteno (nové mapy 2026).</td><td>Zužuje bojiště, zvyšuje váhu národního prostředí.</td></tr>
+        <tr><td><strong>Írán</strong></td><td>Válka od 28. 2. 2026; příměří 8. 4.; Islámábádské memorandum 17. 6.; kolaps 7.–8. 7.; od té doby přerušované údery, námořní blokáda, sankce, jednání přes Pákistán a Omán. Trump nevylučuje údery před volbami. Rychle se mění.</td><td>Rally efekt nepřišel; paliva a Hormuz jsou přímý volební kanál.</td></tr>
+        <tr><td><strong>Cla</strong></td><td>Nejvyšší soud 20. 2. 2026 zrušil cla podle IEEPA; týž den je nahradila §122 (150 dní), pak §232 a §301. Vážené průměrné clo ~13–15 %. Refundace IEEPA cel běží (řádově 160–175 mld. USD). Farmaceutika: 15 % pro EU (proklamace 11020).</td><td>Clo stojí na exekutivních nosičích → výsledek voleb ho přímo nemění.</td></tr>
+        <tr><td><strong>Soudy a instituce</strong></td><td><em>Trump v. Slaughter</em> (6/2026): nezávislé agentury pod prezidentem. <em>Trump v. Cook</em> (6/2026): guvernérka Fedu zůstává (procesní rozhodnutí). <em>Trump v. Illinois</em> (12/2025): federalizace Gardy omezena. Emergency docket: administrativa vítězí ~70–80 %, ve věcném řízení prohrává velké případy.</td><td>Soud rozšiřuje kontrolu prezidenta nad exekutivou, zužuje ji nad delegovanými ekonomickými pravomocemi.</td></tr>
+        <tr><td><strong>Rozpočet</strong></td><td>Pokračující rezoluce do <strong>11. 12. 2026</strong> (Senát 90–6). Vzorec pocket rescission v srpnu–září (2025 i 2026).</td><td>Lame-duck Kongres má tvrdý termín.</td></tr>
+        <tr><td><strong>Epstein</strong></td><td>Zákon o zveřejnění (11/2025) platí; DOJ zveřejnil část, miliony stran zůstávají v revizi; spor o plnění zákona.</td><td>Páka na bázi se přesunula z „hlasování“ na „vymáhání“.</td></tr>
+        <tr><td><strong>Média</strong></td><td>Spor o přístup do poolu Bílého domu (CNN, sítě) běží u soudů od září.</td><td>Indikátor eroze, ne hybatel.</td></tr>
+        <tr><td><strong>Ukrajina</strong></td><td>Trilaterální jednání USA–Rusko–Ukrajina „přijato v principu“ na říjen (SAE), bez data.</td><td>Nepředvolební karta; relevantní až pro 2027.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Jak strom číst</p>
+    <h2>2. Jak strom číst</h2>
+    <p>Tři pravidla:</p>
+    <ol class="steps-ol">
+      <li>Výsledek voleb mění hlavně <strong>rozpočet, nominace a vyšetřování</strong>. Exekutivní nástroje — cla podle §232/§301, personální kroky, nouzové pravomoci, emergency docket — na něm nezávisí.</li>
+      <li>Pro firmu nerozhoduje, co bude řečeno, ale co se <strong>formalizuje</strong>. V letech 2025–26 se zhruba třetina tarifních oznámení na sociálních sítích provedla podle oznámení, třetina jinak (nižší sazba, jiný statut, výjimky) a třetina vůbec. Oznámení s konkrétním statutem a ukončeným šetřením se formalizuje; oznámení s kulatou sazbou a bez statutu je vyjednávací signál.</li>
+      <li>Podscénáře jsou <strong>dominantní módy</strong>, ne vzájemně výlučné stavy. Váhy uvnitř scénáře jsou podmíněné daným výsledkem voleb.</li>
+    </ol>
+    <p>Pomocná optika, která textem občas probleskne: jak rychle a v jaké formě se republikánské elity přestanou chovat konformně (plíživá eroze / zlom / konsolidace). Je to jedno z jader analýzy, ne její výstup.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Váhy k 9. 10. 2026</p>
+    <h2>3. Hlavní scénáře</h2>
+    <p>Váhy k 9. 10. 2026 (zmrazí se 2. 11.):</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Výsledek</th><th>Váha</th><th>Práh pro přiřazení</th></tr></thead>
+      <tbody>
+        <tr><td><span class="code">S2</span></td><td>D Sněmovna + D Senát</td><td class="w">45–50 %</td><td>demokratický caucus ≥ 51 v Senátu; Sněmovna D 218–244</td></tr>
+        <tr><td><span class="code">S1</span></td><td>D Sněmovna + R Senát</td><td class="w">25–30 %</td><td>demokratický caucus ≤ 50</td></tr>
+        <tr><td><span class="code">S3</span></td><td>R Sněmovna + R Senát</td><td class="w">10–15 %</td><td>—</td></tr>
+        <tr><td><span class="code">S4</span></td><td>demokratický landslide</td><td class="w">8–12 %</td><td>Sněmovna D ≥ 245 (čistý zisk ≥ +30) <strong>nebo</strong> Senát D ≥ 52</td></tr>
+        <tr><td>—</td><td>R Sněmovna + D Senát</td><td class="w">~1–2 %</td><td>dál se nerozvíjí</td></tr>
+      </tbody>
+    </table></div>
+    <p class="tnote"><strong>S5 — zpochybnění výsledků</strong> je modifikátor nad S1/S2/S4, ne samostatný scénář (viz 3.5).</p>
+  </div>
+</section>
+
+<section class="slide scen">
+  <div class="wrap wide">
+    <p class="marker">Scénář S2 · váha 45–50 %</p>
+    <h3 class="scen-h">S2 — Demokraté berou obě komory (45–50 %)</h3>
+    <p>Co to znamená: Kongres má subpoeny, rozpočet i nominace; prezident má exekutivní nástroje a emergency docket. Dva roky kohabitace, ve které se konflikt odehrává hlavně v soudech a v rozpočtovém kalendáři.</p>
+    <div class="subs">
+      <article class="sub"><header class="sub-h"><span class="code">S2a</span><h4>Vyšetřování + bunkr</h4><span class="p">30 %</span></header><p class="lead">Obě komory vyšetřují, Senát blokuje nominace, vláda úřadujících. Exekutiva se přesouvá k nouzovým pravomocím a impoundmentu. Dominantní mód.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S2b</span><h4>Transakční kohabitace</h4><span class="p">25 %</span></header><p class="lead">Tichý pakt: prezident slevuje z konfrontace výměnou za klid na vyšetřovací frontě a ochranu rodinných zájmů. Nejklidnější trajektorie; dluhopisový trh ji systematicky zvýhodňuje.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S2c</span><h4>Ústavní krize</h4><span class="p">20 %</span></header><p class="lead">Ignorování subpoen a soudních příkazů, contempt řízení, otázka vynutitelnosti. Trhy penalizují tvrdě; Senát jako instituce se brání napříč stranami.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S2d</span><h4>Impeachment jako tlakový nástroj</h4><span class="p">15 %</span></header><p class="lead">Odsouzení nedosažitelné (67), ale impeachment jako permanentní tlak; exekutiva paralyzována, Vance fakticky řídí provoz.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S2e</span><h4>Předčasná nástupnická válka</h4><span class="p">10 %</span></header><p class="lead">Guvernéři a senátoři se polohují na 2028 od zimy 2026/27; prezident ztrácí roli kingmakera dřív, než stačí trestat.</p></article>
+    </div>
+    <div class="tbl" style="margin-top:26px"><table>
+      <thead><tr><th>Kanál</th><th>Co čekat v S2</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cla, obchod</strong></td><td>Hladina cel se nemění — nosič je exekutivní. Mění se tlak: slyšení o refundacích IEEPA, rozpočtové podmínky pro CBP a USTR, pokusy omezit §232 zákonem (bez 60 hlasů v Senátu neprojdou). Nové sektorové §232 možné, ale s rostoucí politickou cenou.</td></tr>
+        <tr><td><strong>USD, sazby, Fed</strong></td><td>Rozpočtový pat = menší fiskální impuls; riziko shutdownu u každého termínu CR. Fed soudně chráněn, nominace do Boardu nově přes demokratický Senát. S2c je jediný podscénář mimo S5, kde Treasuries ztrácejí roli bezpečného přístavu.</td></tr>
+        <tr><td><strong>Bezpečnost</strong></td><td>War powers rezoluce k Íránu reálné; podmínky pomoci Ukrajině v appropriations; Kongres jako kotva NATO (text zákona vs. rétorika summitů). Personální čistka v armádě pod dohledem výborů.</td></tr>
+        <tr><td><strong>Regulace, instituce</strong></td><td>Agentury dál pod prezidentem (<em>Slaughter</em>), ale rozpočtově omezené; Schedule Policy/Career pokračuje.</td></tr>
+        <tr><td><strong>Firma v CEE</strong></td><td>Plánovat na stávající cla jako na trvalý stav, ne na „konec cel“. Sledovat statutární hodiny (§301 určení, 11. 12. CR), ne posty. Kurzová a úroková volatilita vyšší v listopadu–prosinci.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="slide scen">
+  <div class="wrap wide">
+    <p class="marker">Scénář S1 · váha 25–30 %</p>
+    <h3 class="scen-h">S1 — Demokraté Sněmovnu, republikáni Senát (25–30 %)</h3>
+    <p>Historicky nejběžnější výsledek (2018). Vyšetřování bez nominační páky.</p>
+    <div class="subs">
+      <article class="sub"><header class="sub-h"><span class="code">S1a</span><h4>Kohabitace 2019</h4><span class="p">35 %</span></header><p class="lead">Rétorické přerámování (Senát = vítězství), vyšetřování bez impeachmentu, vládnutí exekutivou. Plíživá eroze bez události; nejhůř čitelný mód.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S1b</span><h4>Vyšetřovací mlýn</h4><span class="p">30 %</span></header><p class="lead">Subpoeny a slyšení dominují 2027, vymáhání Epsteinova zákona; v intenzivnější variantě impeachment, který Senát odmítne.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S1c</span><h4>Exekutivní maximalismus</h4><span class="p">25 %</span></header><p class="lead">Dekrety, impoundment, nouzové pravomoci; Nejvyšší soud pivotní. Zablokuje-li 2–3 velké kroky, elity se distancují rychle; defereuje-li, konsolidace navzdory prohře a přesun konfliktu na státy a trhy.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S1d</span><h4>Těsná ztráta se spory o mandáty</h4><span class="p">10 %</span></header><p class="lead">Marže 1–3 křesla, odložená volba speakera; můstek k S5.</p></article>
+    </div>
+    <p class="tnote"><strong>Dopady:</strong> jako S2, ale bez nominační brzdy — kabinet a soudci procházejí dál; war powers a podmínky pomoci jen jako sněmovní páka v appropriations. Pro firmu nejmenší změna proti dnešku: vyšetřovací titulky, exekutivní provoz beze změny.</p>
+  </div>
+</section>
+
+<section class="slide scen">
+  <div class="wrap wide">
+    <p class="marker">Scénář S3 · váha 10–15 %</p>
+    <h3 class="scen-h">S3 — Republikáni drží obě komory (10–15 %)</h3>
+    <div class="subs">
+      <article class="sub"><header class="sub-h"><span class="code">S3a</span><h4>Těsná vindikace</h4><span class="p">45 %</span></header><p class="lead">Výsledek legitimizuje trestání; eskalace vůči médiím a distancerům; soudy jedinou brzdou; elity konformní minimálně do primárek 2028. Falzifikační bod pro pomocnou hypotézu o zlomu.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S3b</span><h4>Hluboká konsolidace</h4><span class="p">20 %</span></header><p class="lead">Zrychlení institucionální přestavby (OMB a personální osa), testování ústavních limitů.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S3c</span><h4>Udržení s přeživšími defektory</h4><span class="p">35 %</span></header><p class="lead">Navenek vindikace, uvnitř precedent „distanc nezabíjí“; konsolidační titulky, erozní podloží. Nejzáludnější pro čtení.</p></article>
+    </div>
+    <p class="tnote"><strong>Dopady:</strong> nejvyšší riziko nových sektorových §232 a dalších „dohod“ s EU pod tlakem; nulová legislativní brzda. Fiskální expanze (druhý balík reconciliation), tlak na Fed přes nominace; dluhopisový trh jediný korektiv. Exekutiva dominuje zahraniční politice; Írán a Ukrajina řešeny transakčně; NATO bez kongresové kotvy. Pro firmu: nejvyšší volatilita obchodní politiky, nejnižší volatilita politická.</p>
+  </div>
+</section>
+
+<section class="slide scen">
+  <div class="wrap wide">
+    <p class="marker">Scénář S4 · váha 8–12 %</p>
+    <h3 class="scen-h">S4 — Demokratický landslide (8–12 %)</h3>
+    <div class="subs">
+      <article class="sub"><header class="sub-h"><span class="code">S4a</span><h4>Okamžitý lame duck</h4><span class="p">45 %</span></header><p class="lead">Defekce elit v řádu týdnů; nástupnický závod otevřený od Q1 2027.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S4b</span><h4>Spálená země</h4><span class="p">30 %</span></header><p class="lead">Prezident obviní stranu ze zrady, hrozby sabotáží kandidátů 2028; rozštěp pravice za horizont mandátu.</p></article>
+      <article class="sub"><header class="sub-h"><span class="code">S4c</span><h4>Institucionální pakt</h4><span class="p">25 %</span></header><p class="lead">Bipartisan guardrails (war powers, ochrana inspektorů, mediální přístup zákonem); nejtrvalejší varianta.</p></article>
+    </div>
+    <p class="tnote"><strong>Dopady:</strong> jako S2 s rychlejším tempem. Jediný scénář, kde je myslitelné legislativní omezení §232/IEEPA s přehlasováním veta u konsenzuálních norem. Pro firmu největší šance na stabilizaci pravidel obchodu, ale nejdřív od 2027.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Modifikátor</p>
+    <h3 class="scen-h">S5 — Zpochybnění výsledků (modifikátor nad S1/S2/S4)</h3>
+    <p>Podmíněná pravděpodobnost <strong>pokusu</strong> po prohře: 20–30 %. Rozdělení forem: rétorické 60 % (tvrdí podvod, fakticky vyhoví; grievance narativ pro 2028), certifikační bitvy ve státech 25 % (vzorec 2020: úředníci drží, soudy proti — každá prohra urychluje erozi, kterou měla zvrátit), exekutivní intervence 10 % (DOJ, „election integrity“, Garda; SCOTUS a Pentagon pivotní, <em>Trump v. Illinois</em> už prostor zúžil), násilí 5 %. Midterms jsou 470 oddělených voleb bez jediného certifikačního bodu; systémová váha S5 je proto nižší než u prezidentských voleb a koncentruje se do jednoho až dvou senátních států s těsným výsledkem. Pro trhy je S5 hlavní zdroj listopadové volatility. Pro firmu: do vyjasnění nic nedělat a nespekulovat na výsledek.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Mechanika</p>
+    <h2>4. Co volby nezmění</h2>
+    <p>Nezávislé na složení Kongresu: exekutivní příkazy, proklamace podle existujících statutů (§232, §301), personální kroky (po <em>Slaughter</em> posílené), Schedule Policy/Career, nouzové pravomoci v mezích daných soudy, emergency docket. Závislé: rozpočet (CR 11. 12. 2026), zákonná rescise, vyšetřování (subpoeny výborů jako nová třída primárních zdrojů), nominace (en-bloc potvrzování jen při senátní většině), Congressional Review Act.</p>
+    <p>Princip: čím víc moci se přesunulo do existujících statutů a precedentů, tím méně midterms změní exekutivní mechaniku; změní hlavně rozpočtovou a kontrolní. Při čtení každého oznámení rozhoduje <strong>nosič</strong> — statut, na kterém akt stojí. Ten předpovídá soudní osud i trvanlivost líp než síla slov.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Nové vrstvy</p>
+    <h2>5. Dvě vrstvy, které v původní verzi chyběly</h2>
+    <p class="block"><strong>Lame-duck Kongres (4. 11. 2026 – 3. 1. 2027).</strong> Odcházející republikánská většina má dva měsíce a tvrdý termín 11. 12. Možnosti: omnibus nebo CR do jara, pokus o rescisi, potvrzování nominantů en bloc, CRA na zbytek. Po prohře se tento interval stává nejintenzivnějším oknem exekutivních kroků před novým Kongresem. Pro firmu jediný pevně datovaný bod do konce roku.</p>
+    <p class="block"><strong>Guvernéři (36 států).</strong> Pro rok 2028 jsou guvernéři a secretaries of state klíčovými aktéry certifikace; výsledky v Georgii, Arizoně, Michiganu, Wisconsinu, Pensylvánii a Nevadě mění váhu S5 pro 2028 víc než pro 2026. Do volební noci patří jako samostatný řádek.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Srovnání</p>
+    <h2>6. Proč 2026 není 2018</h2>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>2018</th><th>2026</th></tr></thead>
+      <tbody>
+        <tr><td>Prezident na příštím lístku</td><td>ano (2020)</td><td>ne — lame duck od 4. 11.</td></tr>
+        <tr><td>Vnitřní brzdy</td><td>Mattis, Kelly, McMaster</td><td>kabinet vybraný na loajalitu, NSC zúžené</td></tr>
+        <tr><td>Formalizace</td><td>příkazy bez právního prověření</td><td>OMB a DOJ převádějí impuls do textu během hodin</td></tr>
+        <tr><td>Precedens po prohře</td><td>—</td><td>6. leden 2021</td></tr>
+        <tr><td>Soudy</td><td>univerzální injunkce district courts</td><td>po <em>CASA</em> hromadné žaloby a koalice států; SCOTUS 6–3</td></tr>
+        <tr><td>Elity po prohře</td><td>žádná kaskáda</td><td>otevřený nástupnický závod, prezidentovi 80</td></tr>
+      </tbody>
+    </table></div>
+    <p class="tnote">V roce 2018 prohra Sněmovny elity nezlomila. V roce 2026 je hlavním hybatelem lame-duck efekt a nástupnictví, ne výsledek voleb sám; volby ho zrychlují nebo zpomalují, nespouštějí. Druhé období je zároveň vyhrocenější a bez vnitřních protivah — tlak na konformitu je vyšší, a tím i cena případného zlomu.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap wide">
+    <p class="marker">Citlivost</p>
+    <h2>7. Divoké karty: směr a velikost</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Karta</th><th>Posun vah (odhad)</th><th>Charakter</th></tr></thead>
+      <tbody>
+        <tr><td>Írán — příměří nebo dohoda před 3. 11.</td><td>S3 +3 až +5 b., S2 −3 až −5</td><td>rally, krátkodobý</td></tr>
+        <tr><td>Írán — oběti, eskalace, Hormuz</td><td>S2/S4 +3 až +5</td><td>erozní</td></tr>
+        <tr><td>Ekonomika — inflace, paliva</td><td>S2/S4 +2 až +4</td><td>strukturální podloží</td></tr>
+        <tr><td>Epstein — vynucené velké zveřejnění</td><td>S4 +2; uvnitř S5 posun k rétorické formě</td><td>páka na bázi, ne na elity</td></tr>
+        <tr><td>Zdraví (80 let)</td><td>volební váhy beze změny; po volbách přesun k nástupnickým větvím</td><td>tichý ocas</td></tr>
+        <tr><td>SCOTUS — velké rozhodnutí před volbami</td><td>S1c/S2c ± podle směru</td><td>rozhodčí</td></tr>
+        <tr><td>Trhy — skok 10Y &gt; 50 bp za 5 dní</td><td>tah k transakčním větvím (S2b)</td><td>disciplinační aktér</td></tr>
+        <tr><td>Fox/Murdoch — změna tónu</td><td>předstihový indikátor erozních větví</td><td>ne hybatel</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Volební noc</p>
+    <h2>8. Klíč pro volební noc a prvních 14 dní</h2>
+    <p><strong>Přiřazení k scénáři:</strong> podle prahů v tabulce v části 3. Demokratický caucus ≥ 51 v Senátu vyřazuje S1; republikánská Sněmovna vyřazuje S1, S2 i S4; sněmovní marže ≤ 3 křesla nebo senátní kontrola závislá na jednom státě s rozdílem pod 0,5 % aktivuje sledování S5 a S1d.</p>
+    <p><strong>Co číst do 17. 11.:</strong></p>
+    <ol class="steps-ol">
+      <li>Rámování výsledku prezidentem — uznání × podvod (rétorická × certifikační větev S5).</li>
+      <li>Chování odcházejících republikánů v lame-duck — hlasování o CR, nominacích, rescisi.</li>
+      <li>Personální kroky — obětní beránek (Hegseth), odchod kohokoli z jádra Wilesová / Vought / Miller.</li>
+      <li>Milosti rodinnému okruhu (transakční větev) × personální posílení Vought/Miller osy (eskalační větev).</li>
+      <li>Dárci a tón Fox News.</li>
+      <li>Výnos 10Y UST a VIX — reakce na čistotu výsledku, ne na vítěze.</li>
+      <li>Emergency docket — nové žádosti do 14 dnů.</li>
+    </ol>
+    <p>Model se po certifikaci skóruje Brierovým skóre na S1–S4; revize vah do 8. 11.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Pomocná optika</p>
+    <h2>9. Rovnováha elit (pomocná optika)</h2>
+    <p>Dominantní mód do ledna 2029 při vahách z části 3: zlom v různé formě (S2a–e, S4, S1b, S1c-i) ~65–70 %; plíživá eroze bez události (S1a, S3c, S1d) ~15–20 %; konsolidace (S3a, S3b, S1c-ii) ~10–15 %; systémová událost mimo rámec ~1–2 %. Posun proti září je důsledkem přepsaných volebních vah, ne nové informace o chování elit. Falzifikační závazek trvá: realizovaný S3a nebo S3b znamená hypotézu formálně revidovat, ne zachraňovat.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <p class="marker">Verze modelu</p>
+    <h2>Changelog</h2>
+    <ul class="news">
+      <li><strong>22. 9. 2026</strong> — původní verze: 5 scénářů, 27 podscénářů, verdikty elitní dynamiky.</li>
+      <li><strong>9. 10. 2026</strong> — tato verze: váhy přepsány (S2 modální), vrstva dopadů, S5 jako modifikátor, 18 podscénářů, sekce 4–8 nové, opravy konzistence.</li>
+    </ul>
+    <p class="sign">Analytická divize Strategického bootcampu. Model je subjektivní, revidovatelný a bude skórován po volbách.</p>
+    <p class="prev">Původní verze z 22. 9. 2026: <a href="/resources/us-midterms-2026-scenare">Americké mid-terms 2026: scénářový strom do ledna 2029</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="fnav" aria-label="Odkazy">
+      <a href="https://strategickybootcamp.cz/">Zpět na strategickybootcamp.cz</a>
+      <a href="https://strategickybootcamp.cz/thinktank">Thinktank</a>
+      <a href="/resources/us-midterms-2026-scenare">Původní verze z 22. 9. 2026</a>
+    </nav>
+    <img src="../images/logo-analyticka-divize-inverse.png" alt="Strategický bootcamp – Analytická divize" class="footer-logo" width="558" height="214">
+    <p class="copy">© 2026 Strategický bootcamp
+      <a href="https://www.linkedin.com/company/strategicky-bootcamp/" target="_blank" rel="noopener" class="footer-linkedin" aria-label="Strategický bootcamp na LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, head=document.querySelector('.top'), bar=document.querySelector('.progress');
+  var mobile=matchMedia('(max-width:720px)'), still=matchMedia('(prefers-reduced-motion: reduce)');
+  var stops=[].slice.call(document.querySelectorAll('main .slide, footer'));
+  var btns=[].slice.call(document.querySelectorAll('[data-mode]'));
+
+  function presenting(){return root.classList.contains('present')&&!mobile.matches;}
+  function barH(){return head.offsetHeight;}
+  function maxY(){return root.scrollHeight-innerHeight;}
+  function docTop(el){return el.getBoundingClientRect().top+scrollY;}
+  function clampY(y){return Math.max(0,Math.min(maxY(),Math.round(y)));}
+  /* scroll pozice, kdy začátek slajdu sedí pod lištou */
+  function tops(){var b=barH();return stops.map(function(s){return clampY(docTop(s)-b);});}
+  function current(t,y){var i=0;for(var k=0;k<t.length;k++){if(t[k]<=y+2)i=k;}return i;}
+
+  /* Klávesy: další / předchozí slajd. Slajd vyšší než okno se nejdřív doroluje po stránkách. */
+  var pending=null, pendingT;
+  function go(d){
+    var t=tops(), y=pending!==null?pending:scrollY, vh=innerHeight-barH(), i=current(t,y), dest;
+    if(d>0){
+      var content=stops[i].querySelector('.wrap')||stops[i];
+      var endY=clampY(docTop(content)+content.offsetHeight+32-innerHeight);
+      var nextY=i+1<t.length?t[i+1]:maxY();
+      dest=y<endY-2?Math.min(y+vh*.9,endY):nextY;
+    }else{
+      dest=y>t[i]+2?Math.max(y-vh*.9,t[i]):(i>0?t[i-1]:0);
+    }
+    dest=clampY(dest);
+    if(Math.abs(dest-y)<1)return;
+    pending=dest;clearTimeout(pendingT);pendingT=setTimeout(function(){pending=null;},still.matches?50:900);
+    scrollTo({top:dest,behavior:still.matches?'auto':'smooth'});
+  }
+  addEventListener('keydown',function(e){
+    if(!presenting()||e.defaultPrevented||e.altKey||e.ctrlKey||e.metaKey)return;
+    var el=e.target, tag=el&&el.tagName||'', k=e.key, d=0;
+    if(/^(INPUT|TEXTAREA|SELECT)$/.test(tag)||el.isContentEditable)return;
+    if(k==='ArrowDown'||k==='PageDown')d=1;
+    else if(k==='ArrowUp'||k==='PageUp')d=-1;
+    else if(k===' '||k==='Spacebar'){if(/^(BUTTON|A|SUMMARY)$/.test(tag))return;d=e.shiftKey?-1:1;}
+    if(!d)return;
+    e.preventDefault();go(d);
+  });
+
+  /* Přepínač režimů; při přepnutí drží čtenáře na stejném místě textu */
+  function apply(mode,keep){
+    var p=mode!=='read', anchor=null, ratio=0;
+    if(keep){var i=current(tops(),scrollY);anchor=stops[i];ratio=(scrollY+barH()-docTop(anchor))/(anchor.offsetHeight||1);}
+    root.classList.toggle('present',p);
+    btns.forEach(function(x){x.setAttribute('aria-pressed',String((x.dataset.mode==='present')===p));});
+    if(anchor){
+      root.style.scrollBehavior='auto';
+      scrollTo(0,clampY(docTop(anchor)-barH()+Math.max(0,ratio)*anchor.offsetHeight));
+      root.style.scrollBehavior='';
+    }
+    upd();
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      apply(b.dataset.mode,true);
+      try{localStorage.setItem('sb-mode',b.dataset.mode);}catch(e){}
+    });
+  });
+
+  function upd(){var h=maxY();bar.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%';}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+  apply(root.classList.contains('present')?'present':'read',false);
+})();
+</script>
+</body>
+</html>
