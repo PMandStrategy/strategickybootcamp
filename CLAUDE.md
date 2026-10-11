@@ -9,6 +9,18 @@ Repo obsahuje dvě veřejné stránky:
 - **`next-step-party.html`** – landing page otevřeného setkání Next Step Party (Ostrava + Praha, konec každého běhu bootcampu). Stejný vizuální základ jako `msk.html` (navbar s logem, paleta, DM Sans, reveal-on-scroll). Jako og:image používá `images/og-logo.png` (1200×630, logo bootcampu na teplém pozadí — vhodné i pro další podstránky).
 - **`thinktank.html`** – Analytická divize (strategické analýzy pro firmy). Má vlastní modrou variantu loga (modrý diamant + podtitul „ANALYTICKÁ DIVIZE“): og:image `images/og-thinktank.png`, v tmavé patičce inverzní varianta `images/logo-analyticka-divize-inverse.png` (bez odkazu). Pro světlé pozadí existuje `images/logo-analyticka-divize.png` (černý text #000, průhledné pozadí, 554×210, ořez bez okrajů — po složení na bílou pixelově shodná se zdrojovým rastrem). **V navbaru je záměrně standardní logo bootcampu** — logo v navbaru funguje jako návrat na HP celé domény, která má širší záběr než Analytická divize. Všechna tři PNG jsou odvozená z rastru 697×325 px; až dodá grafik větší/vektorovou verzi, je vhodné je přegenerovat.
 
+### Složka `resources/` – neveřejné podklady
+
+Stránky v `resources/` jsou **neprolinkované** z homepage a mají `<meta name="robots" content="noindex, nofollow">`. Kdo zná URL, stránku vidí; repo je ale veřejné, takže obsah je čitelný i na GitHubu (včetně vyhledávání v kódu). To je v pořádku u handoutů typu midterms, ne u podkladů pro jednoho adresáta.
+
+**Zaheslované podstránky** (např. `resources/k75-karvina-okrsky-*.html`): do repa jde jen zašifrovaný obsah (AES-256-GCM, klíč z hesla přes PBKDF2-SHA256), stránka se odemkne heslem v prohlížeči přes Web Crypto API – nic se neposílá na server. Vyrábí je `tools/gate-page.js` (Node 18+, bez npm závislostí):
+
+```
+node tools/gate-page.js --in "<zdrojové HTML mimo repo>" --out resources/<nazev>.html --title "<Název>" --pass-file "<soubor s heslem MIMO repo>"
+```
+
+Zdrojové HTML ani soubor s heslem **nikdy necommitovat** (zdroj leží u autora, heslo se adresátovi posílá jiným kanálem než URL). Při změně obsahu se stránka přegeneruje stejným příkazem, heslo zůstává. Stránka má stejnou hlavičku a patičku jako ostatní `resources/` (logo Analytické divize, O dokumentu, LinkedIn).
+
 ### Pravidla pro podstránky
 
 - Patička každé podstránky (současné i budoucí) obsahuje LinkedIn ikonu (inline SVG, stejná jako na homepage, `class="footer-linkedin"`) s odkazem na `https://www.linkedin.com/company/strategicky-bootcamp/` — na stejném řádku hned vedle „© 2026 Strategický bootcamp“. Vzor viz patička `next-step-party.html` nebo `msk.html`.
