@@ -65,7 +65,7 @@ const html = `<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<meta name="referrer" content="no-referrer">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(title)} | Strategický bootcamp</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
 <style>
