@@ -77,6 +77,7 @@ const html = `<!DOCTYPE html>
   --bar: 68px;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.62 var(--serif);-webkit-text-size-adjust:100%}
 a{color:var(--bl-d)}
 :focus-visible{outline:3px solid var(--bl);outline-offset:2px}
