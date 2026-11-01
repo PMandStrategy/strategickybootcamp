@@ -120,6 +120,37 @@ Hybridní mezistav mezi `active` a `inactive`. Použij, když registrace byla uz
 
 Stejný pattern (disabled `<span class="btn">` místo CTA odkazu) je použit i pro proběhlé události na `/next-step-party` — tam s textem „Proběhlo".
 
+### 5. Permanentní sběrná karta (bez konkrétního termínu)
+
+Trvale přítomná karta vedle konkrétních termínů. Vede na **stejný registrační formulář** — slouží pro zájemce, kterým žádný z vypsaných termínů nesedí a chtějí se zařadit do příštího vhodného. Není termínem, nikdy se neuzavírá.
+
+- **CSS třídy:** `.term-card.active` + inline `style="border-style: dashed;"` (přerušovaný border signalizuje „bez pevného data")
+- **Variantní blok:** ukazuje OBĚ varianty (ONLINE i PLNÁ), vzhledem k univerzálnosti karty — modrá a oranžová vedle sebe oddělené šedým lomítkem. Nepoužívá `.variant-online` / `.variant-full` třídu, barvy jsou inline.
+- **Badge:** `badge-open` s textem „Stále otevřeno" (odlišení od konkrétních termínů s „Otevřeny přihlášky")
+- **Datum:** v `.term-dates` je **nadpisová otázka/pobídka**, ne datum — inline `style="color: var(--black);"` přebije oranžovou barvu, kterou `.term-card.active .term-dates` normálně dává
+- **Dva popisné odstavce:** `.term-info` (shrnutí jednou větou) + `.term-extra` (konkrétní pobídka, kurzíva, na kterou navazuje CTA)
+- **CTA:** vede na stejný `forms.gle/...` URL jako konkrétní termíny, ale text tlačítka je **„Napiš o svém cíli →"** (nikoli „Přihlásit se →"), aby rámoval registraci jako projev zájmu, ne přihlášku na konkrétní datum
+
+```html
+<div class="term-card active" style="border-style: dashed;">
+  <div class="term-variant">
+    <div>
+      <span class="term-variant-name" style="color: #345885;">ONLINE</span>
+      <span class="term-variant-name" style="color: var(--warm-gray); font-weight: 400; padding: 0 4px;">/</span>
+      <span class="term-variant-name" style="color: var(--orange-btn);">PLNÁ</span>
+    </div>
+    <span class="term-variant-label">varianta</span>
+  </div>
+  <span class="term-badge badge-open">Stále otevřeno</span>
+  <div class="term-dates" style="color: var(--black);">Chceš být u příštího běhu?</div>
+  <p class="term-info">Běhy vypisujeme průběžně.</p>
+  <p class="term-extra">Napiš nám, co bys chtěl(a) řešit a kdy by ti vyhovovalo — zařadíme tě do nejbližšího vhodného termínu.</p>
+  <a href="https://forms.gle/XiruK9kQ4CKkRjVk6" target="_blank" rel="noopener" class="btn btn-primary">Napiš o svém cíli &rarr;</a>
+</div>
+```
+
+Doporučená pozice v `.term-cards` gridu: **vždy jako poslední karta**, aby konkrétní termíny byly čtenáři nabídnuty první.
+
 ### Přechodový scénář
 
 Typický životní cyklus karty termínu:
@@ -128,6 +159,8 @@ Typický životní cyklus karty termínu:
 3. (volitelně) `active` + `badge-closed` + disabled `<span class="btn">` → přihlašování ukončeno, běh ještě neproběhl
 4. `inactive` → uzavření běhu, odebrání CTA tlačítka, badge "Nábor ukončen"
 5. (volitelně) celá karta se může odebrat z HTML, pokud běh již proběhl a nechceme ho zobrazovat
+
+Permanentní **sběrná karta** (stav 5 výše) existuje nezávisle na tomto cyklu a zůstává na stránce neustále.
 
 ### Historie změn termínů
 
