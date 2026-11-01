@@ -38,15 +38,15 @@ Staré `.html` URL (např. sdílené z LinkedInu nebo emailů) zůstávají funk
 
 V sekci "Vyber si svůj běh" (`#terminy`) se termíny zobrazují jako karty (`.term-card`). Každá karta může mít jeden ze tří stavů:
 
-### 1. Otevřeny přihlášky (aktivní běh)
+### 1. Přihlášky otevřeny (aktivní běh)
 
 - **CSS třídy:** `.term-card.active` + `.term-badge.badge-open`
-- **Badge text:** `Otevřeny přihlášky`
+- **Badge text:** `Přihlášky otevřeny`
 - **Vizuál:** Plná opacity, oranžový border (`border-color: var(--orange-btn)`), box-shadow, obsahuje CTA tlačítko "Přihlásit se →"
 
 ```html
 <div class="term-card active">
-  <span class="term-badge badge-open">Otevřeny přihlášky</span>
+  <span class="term-badge badge-open">Přihlášky otevřeny</span>
   <div class="term-dates">2. 4. — 14. 5. 2026</div>
   <p class="term-info">2. běh (6 týdnů)</p>
   <a href="https://forms.gle/24JvFxNRvER2H5vm9" target="_blank" rel="noopener" class="btn btn-primary">Přihlásit se &rarr;</a>
@@ -126,7 +126,7 @@ Trvale přítomná karta vedle konkrétních termínů. Vede na **stejný regist
 
 - **CSS třídy:** `.term-card.active` + inline `style="border-style: dashed;"` (přerušovaný border signalizuje „bez pevného data")
 - **Variantní blok:** ukazuje OBĚ varianty (ONLINE i PLNÁ), vzhledem k univerzálnosti karty — modrá a oranžová vedle sebe oddělené šedým lomítkem. Nepoužívá `.variant-online` / `.variant-full` třídu, barvy jsou inline.
-- **Badge:** `badge-open` s textem „Stále otevřeno" (odlišení od konkrétních termínů s „Otevřeny přihlášky")
+- **Badge:** `badge-open` s textem „Přihlášky otevřeny" (stejný jako u konkrétních termínů — sběrná karta se odlišuje dashed borderem a univerzálním obsahem, ne badgem)
 - **Datum:** v `.term-dates` je **nadpisová otázka/pobídka**, ne datum — inline `style="color: var(--black);"` přebije oranžovou barvu, kterou `.term-card.active .term-dates` normálně dává
 - **Dva popisné odstavce:** `.term-info` (shrnutí jednou větou) + `.term-extra` (konkrétní pobídka, kurzíva, na kterou navazuje CTA)
 - **CTA:** vede na stejný `forms.gle/...` URL jako konkrétní termíny, ale text tlačítka je **„Napiš o svém cíli →"** (nikoli „Přihlásit se →"), aby rámoval registraci jako projev zájmu, ne přihlášku na konkrétní datum
@@ -141,10 +141,10 @@ Trvale přítomná karta vedle konkrétních termínů. Vede na **stejný regist
     </div>
     <span class="term-variant-label">varianta</span>
   </div>
-  <span class="term-badge badge-open">Stále otevřeno</span>
+  <span class="term-badge badge-open">Přihlášky otevřeny</span>
   <div class="term-dates" style="color: var(--black);">Chceš být u příštího běhu?</div>
   <p class="term-info">Běhy vypisujeme průběžně.</p>
-  <p class="term-extra">Napiš nám, co bys chtěl(a) řešit a kdy by ti vyhovovalo — zařadíme tě do nejbližšího vhodného termínu.</p>
+  <p class="term-extra">Napiš nám, co bys chtěl(a) řešit a svoje preference - zařadíme tě do nejbližšího vhodného termínu.</p>
   <a href="https://forms.gle/XiruK9kQ4CKkRjVk6" target="_blank" rel="noopener" class="btn btn-primary">Napiš o svém cíli &rarr;</a>
 </div>
 ```
